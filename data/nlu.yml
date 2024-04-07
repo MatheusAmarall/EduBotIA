@@ -40,22 +40,17 @@ nlu:
     - Não quero
     - Não, não estou interessado
 
-- intent: utter_ótimo
+- intent: otimo
   examples: |
     - perfeito
     - ótimo
     - incrivel
+    - maravilhoso
+    - excelente
 
-- intent: utter_triste
-  examples: |
-    - estou triste
-    - estou mal
-    - me sinto horrivel
-    - Estou me sentindo triste.
-    
 - intent: bot_challenge
   examples: |
-    - vocé é um robô?
+    - você é um robô?
     - você é um ser humano?
     - estou conversando com um robô?
     - estou conversando com um ser humano?
@@ -63,7 +58,7 @@ nlu:
     - Estou interagindo com um programa de computador?
     - Você é um chatbot ou uma pessoa real?
 
-- intent: lista_material
+- intent: material
   examples: |
     - preciso da lista de material
     - lista de material
@@ -93,20 +88,10 @@ nlu:
     - Quero fazer a matrícula. Como procedo?
     - Estou interessado em me matricular. Qual é o procedimento?
 
-- intent: cronograma_aulas
+- intent: aulas
   examples: |
     - cronograma de aulas
     - Qual é o cronograma das aulas?
     - O cronograma de aulas está disponível?
     - Como posso acessar o cronograma de aulas?
     - Onde posso encontrar o cronograma de aulas?
-    
-- intent: lista_materiais
-  examples: |
-    - lista de materias
-    - Qual é a lista de materias?
-    - Gostaria de receber a lista de materiais.
-    - Onde posso encontrar a lista de materiais necessários?
-    - Como posso obter a lista de materiais?
-    - Qual é a lista dos materiais que preciso comprar?
-    - Preciso da lista de materiais.
