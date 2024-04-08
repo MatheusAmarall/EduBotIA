@@ -1,33 +1,55 @@
 version: "3.1"
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
+  - cumprimento
+  - despedida
+  - afirmacao
+  - negacao
+  - otimo
   - bot_challenge
+  - material
+  - lista_espera
+  - matricula
+  - aulas
+  - lista_materiais
 
 responses:
-  utter_greet:
-  - text: "Hey! How are you?"
+  utter_cumprimento:
+  - text: "Ola, seja bem vindo ao Edubot"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_afirmacao:
+  - text: "fico feliz em ter ajudado"
+    # image: "https://i.imgur.com/nGF1K8f.jpg"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_negacao:
+  - text: "desculpe, nao consegui enterder, pergunte novamente"
+    # image: "https://i.imgur.com/nGF1K8f.jpg"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_otimo:
+  - text: "fico feliz em ter ajudado :)"
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "Tchau"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_lista_espera:
+  - text: "você poderá acompanhar a lista de espéra clicando nesse link: https://palhoca.educarweb.net.br/servicoexterno/matricula-2024/listaespera"
+
+  utter_lista_material:
+  - text: "esta é alista de materiais"
+
+  utter_cronograma_aulas:
+  - text: "cronograma de aulas"
+
+  utter_matricula:
+  - text: "Você Precisara trazer: 
+  xerox certidão nascimento ou carteira de identidade 
+  1 foto 3/4
+  Comprovante residência 
+  Carteira de vacina
+  Para mais informações acesse: https://palhoca.educarweb.net.br/servicoexterno/matricula-2024/publicacoes"
+
+  utter_bot_challenge:
+  - text: "Sou um robô, me chamo Edubot."
 
 session_config:
   session_expiration_time: 60

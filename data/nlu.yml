@@ -1,91 +1,97 @@
 version: "3.1"
 
 nlu:
-- intent: greet
+- intent: cumprimento
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - oi
+    - oii
+    - ola
+    - bom dia
+    - boa tarde
+    - boa noite
+    - Olá, como vai?
+    - E aí?
+    - Tudo bem?
+    - Como vai?
 
-- intent: goodbye
+- intent: despedida
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - tchau
+    - adeus
+    - até mais
+    - tiau
+    - Até mais
+    - Até logo
+    - Até breve
 
-- intent: affirm
+- intent: afirmacao
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - sim
+    - s
+    - claro
+    - sem dúvidas
+    - com certeza
 
-- intent: deny
+- intent: negacao
   examples: |
-    - no
+    - não
     - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - Não, obrigado
+    - Não quero
+    - Não, não estou interessado
 
-- intent: mood_great
+- intent: otimo
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - perfeito
+    - ótimo
+    - incrivel
+    - maravilhoso
+    - excelente
 
 - intent: bot_challenge
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - você é um robô?
+    - você é um ser humano?
+    - estou conversando com um robô?
+    - estou conversando com um ser humano?
+    - Posso saber se estou conversando com uma IA?
+    - Estou interagindo com um programa de computador?
+    - Você é um chatbot ou uma pessoa real?
+
+- intent: material
+  examples: |
+    - preciso da lista de material
+    - lista de material
+    - qual material o aluno precisa ?
+    - Gostaria de receber a lista de material escolar.
+    - Poderia me fornecer a lista de materiais necessários para o aluno?
+    - Qual é a lista de material escolar que o aluno precisa?
+    - Pode me ajudar com a lista de material escolar?
+    - Estou procurando pela lista de material escolar.
+
+- intent: lista_espera
+  examples: |
+    - lista de espera
+    - gostaria de saber onde encontro a lista de espera
+    - Onde encontro a lista de espera?
+    - Como posso acessar a lista de espera?
+    - Gostaria de informações sobre a lista de espera
+    - Estou interessado na lista de espera
+   
+- intent: matricula
+  examples: |
+    - matricula
+    - gostaria de saber como faço a matricula
+    - Como faço para realizar a matrícula?
+    - Gostaria de informações sobre o processo de matrícula.
+    - Como posso me matricular?
+    - Quero fazer a matrícula. Como procedo?
+    - Estou interessado em me matricular. Qual é o procedimento?
+
+- intent: aulas
+  examples: |
+    - cronograma de aulas
+    - Qual é o cronograma das aulas?
+    - O cronograma de aulas está disponível?
+    - Como posso acessar o cronograma de aulas?
+    - Onde posso encontrar o cronograma de aulas?
