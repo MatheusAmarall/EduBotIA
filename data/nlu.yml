@@ -31,6 +31,7 @@ nlu:
     - claro
     - sem dúvidas
     - com certeza
+    - obrigado
 
 - intent: negacao
   examples: |
@@ -47,6 +48,7 @@ nlu:
     - incrivel
     - maravilhoso
     - excelente
+    - muito obrigado
 
 - intent: bot_challenge
   examples: |

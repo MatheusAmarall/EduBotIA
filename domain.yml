@@ -32,21 +32,54 @@ responses:
   - text: "Tchau"
 
   utter_lista_espera:
-  - text: "você poderá acompanhar a lista de espéra clicando nesse link: https://palhoca.educarweb.net.br/servicoexterno/matricula-2024/listaespera"
+  - text: "você poderá acompanhar a lista de espéra clicando nesse link: https://palhoca.educarweb.net.br/servicoexterno/matricula-2024/listaespera \b
+  Para mais imformações estou disposto a ajudar :)
+  "
 
   utter_lista_material:
-  - text: "esta é alista de materiais"
+  - text: "esta é alista de materiais \n
+1 Pacote de colorset A450 folhas \b
+1 Camiseta usada grande (da mamãe ou do papai) para 
+as atividades de Arte \b
+1 Tesoura plástica para massinha, com o nome do aluno \b
+2 Apontadores com reservatório \b
+1 Tesoura sem ponta e com o nome do aluno gravado \b
+1 Maleta ofício 380 x 280 x 45 mm 15 Botões (qualquer tamanho e qualquer cor) \b
+2 Borrachas \b
+1 Estojo de tinta aquarela com 12 cores \b
+1 Caixa de sapato encapada (com nome) \b
+1 Pote de plástico para colocar massinha (tamanho 
+aproximado de um pote de margarina) \b
+1 Estojo 3 divisórias \b
+1 Tubo de cola branca (110g) \b
+2 Caixas de lápis de cor com 12 cores (de preferência, sem 
+personagem) \b
+3 Tubos de cola bastão (40g) \b
+6 Caixas de massa de modelar SOFT 180 g \b
+3 Lápis pretos (jumbo) \b
+2 Estojos grandes de giz de cera \b
+1 Pacote de palitos de sorvete \b
+3 Caixas de lenços de papel (150 lenços) \b
+1 Caixa de canetas hidrográficas com 12 cores \b
+2 Blocos de papel canson  A4 \b
+2 Pacotes de toalhas umedecidas (100 unidades cada) 
+para uso coletivo \b
+1 Pacote de papel lumipaper  cores sortidas  A4 50 \b
+Para mais imformações estou disposto a ajudar :)
+"
 
   utter_cronograma_aulas:
   - text: "cronograma de aulas"
 
   utter_matricula:
-  - text: "Você Precisara trazer: 
-  xerox certidão nascimento ou carteira de identidade 
-  1 foto 3/4
-  Comprovante residência 
-  Carteira de vacina
-  Para mais informações acesse: https://palhoca.educarweb.net.br/servicoexterno/matricula-2024/publicacoes"
+  - text: "Você Precisara trazer: \n
+  xerox certidão nascimento ou carteira de identidade \n
+  1 foto 3/4 \n
+  Comprovante residência \n 
+  Carteira de vacina \n
+  Para mais informações acesse: https://palhoca.educarweb.net.br/servicoexterno/matricula-2024/publicacoes \b
+  Para mais imformações estou disposto a ajudar :)
+  "
 
   utter_bot_challenge:
   - text: "Sou um robô, me chamo Edubot."
