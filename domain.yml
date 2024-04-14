@@ -12,8 +12,30 @@ intents:
   - matricula
   - aulas
   - lista_materiais
+  - testar_rule
+  - material_escolha
+
+entities:
+  - tipo_material
+
+slots:
+  tipo_material:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: tipo_material
+        conditions:
+          - active_loop: tipo_material_form
+
+forms:
+  tipo_material_form:
+    required_slots:
+      - tipo_material
 
 responses:
+  
+ 
   utter_cumprimento:
   - text: "Ola, seja bem vindo ao Edubot"
 
@@ -32,42 +54,75 @@ responses:
   - text: "Tchau"
 
   utter_lista_espera:
-  - text: "você poderá acompanhar a lista de espéra clicando nesse link:
+  - text: "
+  você poderá acompanhar a lista de espéra clicando nesse link:
   \nhttps://palhoca.educarweb.net.br/servicoexterno/matricula-2024/listaespera
-  \nPara mais imformações estou disposto a ajudar :)
+  \nPara mais informações estou disposto a ajudar :)
   "
+  # utter_lista_material:
+  # -text: "
+  #   \nselecione a lista que deseja:
+  #   \nMaternal ate 3 anos.
+  #   \nPré-Escola entre 4 e 5 anos.
 
-  utter_lista_material:
-  - text: "esta é alista de materiais \n
-1 Pacote de colorset A450 folhas \n
-1 Camiseta usada grande (da mamãe ou do papai) para 
-as atividades de Arte \n
-1 Tesoura plástica para massinha, com o nome do aluno \n
-2 Apontadores com reservatório \n
-1 Tesoura sem ponta e com o nome do aluno gravado \n
-1 Maleta ofício 380 x 280 x 45 mm 15 Botões (qualquer tamanho e qualquer cor) \n
-2 Borrachas \n
-1 Estojo de tinta aquarela com 12 cores \n
-1 Caixa de sapato encapada (com nome) \n
-1 Pote de plástico para colocar massinha (tamanho 
-aproximado de um pote de margarina) \n
-1 Estojo 3 divisórias \n
-1 Tubo de cola branca (110g) \n
-2 Caixas de lápis de cor com 12 cores (de preferência, sem 
-personagem) \n
-3 Tubos de cola bastão (40g) \n
-6 Caixas de massa de modelar SOFT 180 g \n
-3 Lápis pretos (jumbo) \n
-2 Estojos grandes de giz de cera \n
-1 Pacote de palitos de sorvete \n
-3 Caixas de lenços de papel (150 lenços) \n
-1 Caixa de canetas hidrográficas com 12 cores \n
-2 Blocos de papel canson  A4 \n
-2 Pacotes de toalhas umedecidas (100 unidades cada) 
-para uso coletivo \n
-1 Pacote de papel lumipaper  cores sortidas  A4 50 \n
-Para mais imformações estou disposto a ajudar :)
+  # "
+
+#   utter_lista_material:
+#   - text: "materiais: \n
+# 1 Pacote de colorset A450 folhas \n
+# 1 Camiseta usada grande (da mamãe ou do papai) para 
+# as atividades de Arte \n
+# 1 Tesoura plástica para massinha, com o nome do aluno \n
+# 2 Apontadores com reservatório \n
+# 1 Tesoura sem ponta e com o nome do aluno gravado \n
+# 1 Maleta ofício 380 x 280 x 45 mm 15 Botões (qualquer tamanho e qualquer cor) \n
+# 2 Borrachas \n
+# 1 Estojo de tinta aquarela com 12 cores \n
+# 1 Caixa de sapato encapada (com nome) \n
+# 1 Pote de plástico para colocar massinha (tamanho 
+# aproximado de um pote de margarina) \n
+# 1 Estojo 3 divisórias \n
+# 1 Tubo de cola branca (110g) \n
+# 2 Caixas de lápis de cor com 12 cores (de preferência, sem 
+# personagem) \n
+# 3 Tubos de cola bastão (40g) \n
+# 6 Caixas de massa de modelar SOFT 180 g \n
+# 3 Lápis pretos (jumbo) \n
+# 2 Estojos grandes de giz de cera \n
+# 1 Pacote de palitos de sorvete \n
+# 3 Caixas de lenços de papel (150 lenços) \n
+# 1 Caixa de canetas hidrográficas com 12 cores \n
+# 2 Blocos de papel canson  A4 \n
+# 2 Pacotes de toalhas umedecidas (100 unidades cada) 
+# para uso coletivo \n
+# 1 Pacote de papel lumipaper  cores sortidas  A4 50 \n
+# Para mais informações estou disposto a ajudar :)
+# "
+
+  utter_material_maternal:
+  - text: "
+\nLista de materiais para o Maternal G1, G2 e G3:
+\n1 Caderno brochura 60 folhas para agenda
+\n1 Brinquedo (adequado para a faixa etária)
+\nObservação: Os materiais de higiene pessoal serão solicitados pela Unidade Escolar em que a criança está matriculada
+\nPara mais informações estou disposto a ajudar :)
 "
+  
+  utter_lista_material_pre:
+  - text: "
+\nLista de materiais para o Pré-escola G4 e G5 :
+\n1 Caderno brochura 60 folhas para agenda
+\n1 Caderno de desenho
+\n1 Penal/ estojo
+\n1 Lápis de cor - 12 cores
+\n1 Lápis preto
+\n1 Borracha
+\n1 Apontador
+\n1 Cola líquida infantil 35 gramas
+\n1 Tesoura escolar ponta arredondada
+\nPara mais informações estou disposto a ajudar :)
+"
+
 
   utter_cronograma_aulas:
   - text: "cronograma de aulas"
@@ -80,11 +135,22 @@ Para mais imformações estou disposto a ajudar :)
   Carteira de vacina \n
   Para mais informações acesse:
   \nhttps://palhoca.educarweb.net.br/servicoexterno/matricula-2024/publicacoes
-  \nPara mais imformações estou disposto a ajudar :)  
+  \nPara mais informações estou disposto a ajudar :)  
   "
 
   utter_bot_challenge:
   - text: "Sou um robô, me chamo Edubot."
+
+  utter_ask_tipo_material:
+  - text: "
+    selecione a lista de material que deseja:
+     "
+
+actions: 
+  - action_ask_tipo_material
+  - utter_ask_tipo_material
+  - action_submit_form_tipo_material
+  - action_mostrar_lista_material
 
 session_config:
   session_expiration_time: 60

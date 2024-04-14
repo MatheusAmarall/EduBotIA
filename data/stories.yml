@@ -12,6 +12,7 @@ stories:
   - action: utter_bot_challenge
   - intent: despedida
   - action: utter_goodbye
+  
  
 - story: path 2
   steps:
@@ -20,10 +21,23 @@ stories:
   - intent: matricula
   - action: utter_matricula
  
-- story: pedir lista de material path 3
+# - story: pedir lista de material path 3
+#   steps:
+#   - intent: material
+#   - action: utter_lista_material
+
+- story: escolher lista de materiais
   steps:
-  - intent: material
-  - action: utter_lista_material
+    - intent: material
+    - action: tipo_material_form
+    - active_loop: tipo_material_form
+    - slot_was_set:
+      - requested_slot: tipo_material
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_mostrar_lista_material
+     
 
 - story: pedir cronograma de aulas path 4
   steps:
@@ -35,8 +49,32 @@ stories:
   - intent: otimo
   - action: utter_otimo
 
-- story: quando faz negecao ao edubot path 6
+- story: quando faz negacao ao edubot path 6
   steps:
   - intent: negacao
   - action: utter_negacao
- 
+     
+
+
+
+
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: cumprimento
+#   - action: utter_cumprimento
+#   - intent: bot_challenge
+#   - action: utter_bot_challenge
+#   - intent: bot_challenge
+#   - action: utter_bot_challenge
+#   - intent: material
+#   - action: utter_lista_material
+
+- story: interactive_story_1
+  steps:
+  - intent: material
+  - action: tipo_material_form
+  - active_loop: tipo_material_form
+  - slot_was_set:
+    - requested_slot: tipo_material
+  - intent: material_escolha
