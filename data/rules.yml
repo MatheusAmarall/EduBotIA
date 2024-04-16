@@ -1,13 +1,30 @@
 version: "3.1"
 
-rules:
+# rules:
+#   - rule: diga "Tchau" sempre que o usuario se despedir
+#     steps:
+#       - intent: despedida
+#       - action: utter_goodbye
 
-- rule: diga "Tchau" sempre que o usuario se despedir
-  steps:
-  - intent: despedida
-  - action: utter_goodbye
+  # - rule: diga 'Sou um robô, me chamo Edubot.' sempre que o usuario perguntar
+  #   steps:
+  #     - intent: bot_challenge
+  #     - action: utter_bot_challenge
 
-- rule: diga 'Sou um robô, me chamo Edubot.' sempre que o usuario perguntar
-  steps:
-  - intent: bot_challenge
-  - action: utter_bot_challenge
+  - rule: ativar_o_form_solicitar_material
+    steps: 
+      - intent: material
+      - action: tipo_material_form
+      - active_loop: tipo_material_form
+    
+  - rule: enviar_o_form_solicitar_material
+    condition:
+      - active_loop: tipo_material_form
+    steps: 
+      - action: tipo_material_form
+      - active_loop: null
+      - slot_was_set:
+        - requested_slot: null
+      - action: action_mostrar_lista_material
+
+  
