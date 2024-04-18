@@ -10,6 +10,7 @@
 from typing import Any, Coroutine, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
+from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 
@@ -46,12 +47,11 @@ class MostrarListaMaterial(Action):
         print(type(tipo_lista))
         if tipo_lista == 'maternal':
             dispatcher.utter_message(response='utter_material_maternal')
-            
+
         elif tipo_lista == 'pre-escola':
             dispatcher.utter_message(response='utter_lista_material_pre')
-        
-        
-        return [] 
+
+        return [SlotSet('tipo_material', None)]
         
 
 #
