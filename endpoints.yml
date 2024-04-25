@@ -33,6 +33,15 @@ tracker_store:
   password:
   auth_source: "bot"
 
+#linha de conexao com o banco de dados, mantenha comentada enquanto treina localmente sem DB
+# tracker_store:
+#   type: mongod
+#   url: mongodb://localhost:27017
+#   db: EduBot
+#   username:
+#   password:
+#   auth_source: "bot"
+
 # Event broker which all conversation events should be streamed to.
 # https://rasa.com/docs/rasa/event-brokers
 
