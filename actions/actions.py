@@ -20,7 +20,7 @@ ALLOWED_TURMA = (
 )
 ALLOWED_CARDAPIO = (
    
-    'maternal', 'pre-escola',
+    'maternal_cardapio', 'pre-escola-cardapio',
 )
 
 class AskTipoMaterialAction(Action):
@@ -84,10 +84,10 @@ class MostrarCardapio(Action):
         tipo_lista = tracker.get_slot('tipo_cardapio')
         print(tipo_lista)
         print(type(tipo_lista))
-        if tipo_lista == 'maternal':
+        if tipo_lista == 'maternal_cardapio':
             dispatcher.utter_message(response='utter_cardapio_maternal')
 
-        elif tipo_lista == 'pre-escola':
+        elif tipo_lista == 'pre-escola-cardapio':
             dispatcher.utter_message(response='utter_cardapio_pre')
 
         return [SlotSet('tipo_cardapio', None)]

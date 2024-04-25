@@ -40,7 +40,7 @@ version: "3.1"
     steps: 
       - action: tipo_cardapio_form
       - active_loop: null
-      - slot_was_set:
+      - slot_was_set: 
         - requested_slot: null
       - action: action_mostrar_cardapio
 

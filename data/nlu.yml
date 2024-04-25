@@ -86,11 +86,14 @@ nlu:
       - oque é servido para alimentação?
       - oque é servido de merenda?
       - oque é servido de lanche?
+      - cardapio maternal
+      - cardapio pre-escola
+      - cardapio pre escola
 
   - intent: cardapio_escolha
     examples: |
-      - [maternal](tipo_cardapio)
-      - [pre-escola](tipo_cardapio)
+      - [maternal_cardapio](tipo_cardapio)
+      - [pre-escola-cardapio](tipo_cardapio)
   
   - intent: material_escolha
     examples: |

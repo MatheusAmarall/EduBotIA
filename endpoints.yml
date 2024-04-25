@@ -24,7 +24,6 @@ action_endpoint:
 #    db: <number of your database within redis, e.g. 0>
 #    password: <password used for authentication>
 #    use_ssl: <whether or not the communication is encrypted, default false>
-<<<<<<< Updated upstream
 
 #tracker_store:
 #    type: mongod
@@ -32,7 +31,7 @@ action_endpoint:
 #    db: <name of the db within your mongo instance, e.g. rasa>
 #    username: <username used for authentication>
 #    password: <password used for authentication>
-=======
+
 #linha de conexao com o banco de dados, mantenha comentada enquanto treina localmente sem DB
 # tracker_store:
 #   type: mongod
@@ -41,7 +40,6 @@ action_endpoint:
 #   username:
 #   password:
 #   auth_source: "bot"
->>>>>>> Stashed changes
 
 # Event broker which all conversation events should be streamed to.
 # https://rasa.com/docs/rasa/event-brokers
