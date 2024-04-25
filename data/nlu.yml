@@ -71,27 +71,29 @@ nlu:
       - Pode me ajudar com a lista de material escolar?
       - Estou procurando pela lista de material escolar.
 
+  - intent: cardapio
+    examples: |
+      - preciso dom cardapio
+      - lanche
+      - merenda
+      - gostaria de verificar o lanche
+      - oque os alunos comem
+      - oque tem de comida
+      - refeicões
+      - qual é a merenda?
+      - oque tem de merenda>
+      - oque tem de lanche?
+      - oque é servido para alimentação?
+      - oque é servido de merenda?
+      - oque é servido de lanche?
+
+  - intent: cardapio_escolha
+    examples: |
+      - [maternal](tipo_cardapio)
+      - [pre-escola](tipo_cardapio)
+  
   - intent: material_escolha
     examples: |
-      - maternal I
-      - g1
-      - maternal II    
-      - g2
-      - maternal III
-      - g3
-      - maternal [I](tipo_material)
-      - maternal [II](tipo_material)
-      - maternal [III](tipo_material)
-      - Pré I
-      - pre-escola I
-      - g4
-      - pre II
-      - pre-escola II
-      - g5
-      - pre [I](tipo_material)
-      - pre [II](tipo_material)
-      - pre-escola [I](tipo_material)
-      - pre-escola [II](tipo_material)
       - [maternal](tipo_material)
       - [pre-escola](tipo_material)
 
@@ -121,3 +123,4 @@ nlu:
       - O cronograma de aulas está disponível?
       - Como posso acessar o cronograma de aulas?
       - Onde posso encontrar o cronograma de aulas?
+

@@ -20,11 +20,7 @@ stories:
   - action: utter_lista_espera
   - intent: matricula
   - action: utter_matricula
- 
-# - story: pedir lista de material path 3
-#   steps:
-#   - intent: material
-#   - action: utter_lista_material
+
 
 - story: escolher lista de materiais
   steps:
@@ -37,6 +33,22 @@ stories:
       - requested_slot: null
     - active_loop: null
     - action: action_mostrar_lista_material
+
+
+- story: escolher cardapio
+  steps:
+    - intent: cardapio
+    - action: tipo_cardapio_form
+    - active_loop: tipo_cardapio_form
+    - slot_was_set:
+      - requested_slot: tipo_cardapio
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_mostrar_cardapio
+      # data:
+      #   slot_name: tipo_cardapio
+      #   value: none
      
 
 - story: pedir cronograma de aulas path 4
@@ -55,21 +67,6 @@ stories:
   - action: utter_negacao
      
 
-
-
-
-
-# - story: interactive_story_1
-#   steps:
-#   - intent: cumprimento
-#   - action: utter_cumprimento
-#   - intent: bot_challenge
-#   - action: utter_bot_challenge
-#   - intent: bot_challenge
-#   - action: utter_bot_challenge
-#   - intent: material
-#   - action: utter_lista_material
-
 - story: interactive_story_1
   steps:
   - intent: material
@@ -78,3 +75,13 @@ stories:
   - slot_was_set:
     - requested_slot: tipo_material
   - intent: material_escolha
+
+
+- story: retorna_slot_cardapio
+  steps:
+  - intent: cardapio
+  - action: tipo_cardapio_form
+  - active_loop: tipo_cardapio_form
+  - slot_was_set:
+    - requested_slot: tipo_cardapio
+  - intent: cardapio_escolha

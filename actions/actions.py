@@ -14,7 +14,11 @@ from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 
-ALLOWED_TIPO_MATERIAL = (
+ALLOWED_TURMA = (
+   
+    'maternal', 'pre-escola',
+)
+ALLOWED_CARDAPIO = (
    
     'maternal', 'pre-escola',
 )
@@ -24,7 +28,7 @@ class AskTipoMaterialAction(Action):
         return "action_ask_tipo_material"
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[str, Any]]]:
-        dispatcher.utter_message(response="utter_ask_tipo_material", buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_TIPO_MATERIAL])
+        dispatcher.utter_message(response="utter_ask_tipo_material", buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_TURMA])
         return []
     
 class SubmitFormTipoMaterial(Action):
@@ -52,6 +56,41 @@ class MostrarListaMaterial(Action):
             dispatcher.utter_message(response='utter_lista_material_pre')
 
         return [SlotSet('tipo_material', None)]
+
+
+class AskTipoCardapioAction(Action):
+    def name(self) -> Text:
+        return "action_ask_tipo_cardapio"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[str, Any]]]:
+        dispatcher.utter_message(response="utter_ask_tipo_cardapio", buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_CARDAPIO])
+        return []
+    
+class SubmitFormTipoCardapio(Action):
+    def name(self) -> Text:
+        return 'action_submit_form_tipo_cardapio'
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        dispatcher.utter_message(text='form enviado')
+
+        return []
+    
+class MostrarCardapio(Action):
+    def name(self) -> Text:
+        return "action_mostrar_cardapio"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        dispatcher.utter_message(text=f"coletei o dado {tracker.get_slot('tipo_cardapio')}")
+        tipo_lista = tracker.get_slot('tipo_cardapio')
+        print(tipo_lista)
+        print(type(tipo_lista))
+        if tipo_lista == 'maternal':
+            dispatcher.utter_message(response='utter_cardapio_maternal')
+
+        elif tipo_lista == 'pre-escola':
+            dispatcher.utter_message(response='utter_cardapio_pre')
+
+        return [SlotSet('tipo_cardapio', None)]
         
 
 #

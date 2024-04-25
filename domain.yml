@@ -14,9 +14,14 @@ intents:
   - lista_materiais
   - testar_rule
   - material_escolha
+  - cardapio_escolha
+  - cardapio
 
 entities:
   - tipo_material
+  - tipo_cardapio
+
+
 
 slots:
   tipo_material:
@@ -28,16 +33,33 @@ slots:
         conditions:
           - active_loop: tipo_material_form
 
+  tipo_cardapio:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: tipo_cardapio
+        conditions:
+          - active_loop: tipo_cardapio_form
+
+
 forms:
+  tipo_cardapio_form:
+    required_slots:
+      - tipo_cardapio
+
+
   tipo_material_form:
     required_slots:
       - tipo_material
+
 
 responses:
   
  
   utter_cumprimento:
   - text: "Ola, seja bem vindo ao Edubot"
+  - text: "Oi! Bem-vindo ao EduBot, estou aqui para ajudar."
 
   utter_afirmacao:
   - text: "fico feliz em ter ajudado"
@@ -59,46 +81,6 @@ responses:
   \nhttps://palhoca.educarweb.net.br/servicoexterno/matricula-2024/listaespera
   \nPara mais informações estou disposto a ajudar :)
   "
-  # utter_lista_material:
-  # -text: "
-  #   \nselecione a lista que deseja:
-  #   \nMaternal ate 3 anos.
-  #   \nPré-Escola entre 4 e 5 anos.
-
-  # "
-
-#   utter_lista_material:
-#   - text: "materiais: \n
-# 1 Pacote de colorset A450 folhas \n
-# 1 Camiseta usada grande (da mamãe ou do papai) para 
-# as atividades de Arte \n
-# 1 Tesoura plástica para massinha, com o nome do aluno \n
-# 2 Apontadores com reservatório \n
-# 1 Tesoura sem ponta e com o nome do aluno gravado \n
-# 1 Maleta ofício 380 x 280 x 45 mm 15 Botões (qualquer tamanho e qualquer cor) \n
-# 2 Borrachas \n
-# 1 Estojo de tinta aquarela com 12 cores \n
-# 1 Caixa de sapato encapada (com nome) \n
-# 1 Pote de plástico para colocar massinha (tamanho 
-# aproximado de um pote de margarina) \n
-# 1 Estojo 3 divisórias \n
-# 1 Tubo de cola branca (110g) \n
-# 2 Caixas de lápis de cor com 12 cores (de preferência, sem 
-# personagem) \n
-# 3 Tubos de cola bastão (40g) \n
-# 6 Caixas de massa de modelar SOFT 180 g \n
-# 3 Lápis pretos (jumbo) \n
-# 2 Estojos grandes de giz de cera \n
-# 1 Pacote de palitos de sorvete \n
-# 3 Caixas de lenços de papel (150 lenços) \n
-# 1 Caixa de canetas hidrográficas com 12 cores \n
-# 2 Blocos de papel canson  A4 \n
-# 2 Pacotes de toalhas umedecidas (100 unidades cada) 
-# para uso coletivo \n
-# 1 Pacote de papel lumipaper  cores sortidas  A4 50 \n
-# Para mais informações estou disposto a ajudar :)
-# "
-
   utter_material_maternal:
   - text: "
 \nLista de materiais para o Maternal G1, G2 e G3:
@@ -123,6 +105,16 @@ responses:
 \nPara mais informações estou disposto a ajudar :)
 "
 
+  utter_cardapio_pre:
+  - text: "
+    \nCardapio da Pre-Escola:\n
+"
+
+  utter_cardapio_maternal:
+  - text: "
+\nCardapio do Maternal:\n
+"
+
 
   utter_cronograma_aulas:
   - text: "cronograma de aulas"
@@ -145,12 +137,22 @@ responses:
   - text: "
     selecione a lista de material que deseja:
      "
+ 
+  utter_ask_tipo_cardapio:
+  - text: "
+    selecione o tipo de cardapio que deseja:
+     "
 
 actions: 
   - action_ask_tipo_material
   - utter_ask_tipo_material
   - action_submit_form_tipo_material
   - action_mostrar_lista_material
+  
+  - action_ask_tipo_cardapio
+  - utter_ask_tipo_cardapio
+  - action_submit_form_tipo_cardapio
+  - action_mostrar_cardapio
 
 session_config:
   session_expiration_time: 60

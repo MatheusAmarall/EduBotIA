@@ -28,3 +28,20 @@ version: "3.1"
       - action: action_mostrar_lista_material
 
   
+  - rule: ativar_o_form_solicitar_caradapio
+    steps: 
+      - intent: cardapio
+      - action: tipo_cardapio_form
+      - active_loop: tipo_cardapio_form
+    
+  - rule: enviar_o_form_solicitar_cardapio
+    condition:
+      - active_loop: tipo_cardapio_form
+    steps: 
+      - action: tipo_cardapio_form
+      - active_loop: null
+      - slot_was_set:
+        - requested_slot: null
+      - action: action_mostrar_cardapio
+
+  
