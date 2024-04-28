@@ -92,8 +92,8 @@ nlu:
 
   - intent: cardapio_escolha
     examples: |
-      - [maternal_cardapio](tipo_cardapio)
-      - [pre-escola-cardapio](tipo_cardapio)
+      - [cardápio maternal](tipo_cardapio)
+      - [cardápio pré-escola](tipo_cardapio)
   
   - intent: material_escolha
     examples: |
