@@ -105,16 +105,10 @@ responses:
 \nPara mais informações estou disposto a ajudar :)
 "
 
-  utter_cardapio_pre:
+  utter_cardapio:
   - text: "
-    \nCardapio da Pre-Escola:\n
-"
-
-  utter_cardapio_maternal:
-  - text: "
-\nCardapio do Maternal:\n
-"
-
+    \nAguarde o download do arquivo.\n
+  "
 
   utter_cronograma_aulas:
   - text: "cronograma de aulas"

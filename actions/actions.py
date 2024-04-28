@@ -1,12 +1,3 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
-
-
-# This is a simple example for a custom action which utters "Hello World!"
-
 from typing import Any, Coroutine, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
@@ -20,7 +11,7 @@ ALLOWED_TURMA = (
 )
 ALLOWED_CARDAPIO = (
    
-    'maternal_cardapio', 'pre-escola-cardapio',
+    'cardápio maternal', 'cardápio pré-escola',
 )
 
 class AskTipoMaterialAction(Action):
@@ -45,14 +36,13 @@ class MostrarListaMaterial(Action):
         return "action_mostrar_lista_material"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
-        dispatcher.utter_message(text=f"coletei o dado {tracker.get_slot('tipo_material')}")
         tipo_lista = tracker.get_slot('tipo_material')
-        print(tipo_lista)
-        print(type(tipo_lista))
         if tipo_lista == 'maternal':
+            dispatcher.utter_message(text=f"Você selecionou maternal")
             dispatcher.utter_message(response='utter_material_maternal')
 
         elif tipo_lista == 'pre-escola':
+            dispatcher.utter_message(text=f"Você selecionou pré-escola")
             dispatcher.utter_message(response='utter_lista_material_pre')
 
         return [SlotSet('tipo_material', None)]
@@ -80,29 +70,13 @@ class MostrarCardapio(Action):
         return "action_mostrar_cardapio"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
-        dispatcher.utter_message(text=f"coletei o dado {tracker.get_slot('tipo_cardapio')}")
         tipo_lista = tracker.get_slot('tipo_cardapio')
-        print(tipo_lista)
-        print(type(tipo_lista))
-        if tipo_lista == 'maternal_cardapio':
-            dispatcher.utter_message(response='utter_cardapio_maternal')
+        if tipo_lista == 'cardápio maternal':
+            dispatcher.utter_message(text=f"Você selecionou cardápio do maternal")  
 
-        elif tipo_lista == 'pre-escola-cardapio':
-            dispatcher.utter_message(response='utter_cardapio_pre')
+        elif tipo_lista == 'cardápio pré-escola':
+            dispatcher.utter_message(text=f"Você selecionou cardápio da pré-escola")
+
+        dispatcher.utter_message(response='utter_cardapio')
 
         return [SlotSet('tipo_cardapio', None)]
-        
-
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
