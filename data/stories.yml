@@ -49,6 +49,19 @@ stories:
     - action: action_mostrar_cardapio
  
      
+- story: visitante escolha
+  steps:
+    - intent: visitante
+    - action: tipo_visitante_form
+    - active_loop: tipo_visitante_form
+    - slot_was_set:
+      - requested_slot: tipo_visitante
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_mostrar_escolha_visitante
+ 
+     
 
 - story: pedir cronograma de aulas path 4
   steps:
@@ -84,3 +97,12 @@ stories:
   - slot_was_set:
     - requested_slot: tipo_cardapio
   - intent: cardapio_escolha
+
+- story: interactive_story_3
+  steps:
+  - intent: visitante
+  - action: tipo_visitante_form
+  - active_loop: tipo_visitante_form
+  - slot_was_set:
+    - requested_slot: tipo_visitante
+  - intent: visitante_escolha

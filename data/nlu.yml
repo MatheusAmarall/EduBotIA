@@ -32,6 +32,10 @@ nlu:
       - sem dúvidas
       - com certeza
       - obrigado
+      - ok
+      - OK
+      - O.K
+      - O.K.
 
   - intent: negacao
     examples: |
@@ -100,6 +104,13 @@ nlu:
       - [maternal](tipo_material)
       - [pre-escola](tipo_material)
 
+  - intent: visitante_escolha
+    examples: |
+      - [Cardápio](visitante_escolha)
+      - [Matricula](visitante_escolha)
+      - [Lista de Espera](visitante_escolha)
+      - [Lista de Materiais](visitante_escolha)
+
   - intent: lista_espera
     examples: |
       - lista de espera
@@ -126,4 +137,9 @@ nlu:
       - O cronograma de aulas está disponível?
       - Como posso acessar o cronograma de aulas?
       - Onde posso encontrar o cronograma de aulas?
+
+
+  - intent: visitante
+    examples: |
+      - visitante
 

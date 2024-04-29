@@ -35,3 +35,20 @@ version: "3.1"
       - action: action_mostrar_cardapio
 
   
+  
+  - rule: ativar_o_form_visitante_options
+    steps: 
+      - intent: visitante
+      - action: tipo_visitante_form
+      - active_loop: tipo_visitante_form
+    
+  - rule: enviar_o_form_visitante_options
+    condition:
+      - active_loop: tipo_visitante_form
+    steps: 
+      - action: tipo_visitante_form
+      - active_loop: null
+      - slot_was_set: 
+        - requested_slot: null
+      - action: action_mostrar_escolha_visitante
+  

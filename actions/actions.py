@@ -13,7 +13,13 @@ ALLOWED_CARDAPIO = (
    
     'cardápio maternal', 'cardápio pré-escola',
 )
+ALLOWED_VISITANTE = (
+   
+    'Cardápio', 'Matricula',
+    'Lista de Espera', 'Lista de Materiais',
+)
 
+##############MATERIAL
 class AskTipoMaterialAction(Action):
     def name(self) -> Text:
         return "action_ask_tipo_material"
@@ -48,6 +54,8 @@ class MostrarListaMaterial(Action):
         return [SlotSet('tipo_material', None)]
 
 
+
+##############CARDAPIO
 class AskTipoCardapioAction(Action):
     def name(self) -> Text:
         return "action_ask_tipo_cardapio"
@@ -80,3 +88,49 @@ class MostrarCardapio(Action):
         dispatcher.utter_message(response='utter_cardapio')
 
         return [SlotSet('tipo_cardapio', None)]
+
+
+
+##############VISITANTE
+class AskTipoVisitanteAction(Action):
+    def name(self) -> Text:
+        return "action_ask_tipo_visitante"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[str, Any]]]:
+        dispatcher.utter_message(response="utter_ask_tipo_visitante", buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_VISITANTE])
+        return []
+    
+class SubmitFormTipoVisitante(Action):
+    def name(self) -> Text:
+        return 'action_submit_form_tipo_visitante'
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        dispatcher.utter_message(text='form enviado')
+
+        return []
+    
+class MostrarVisitante(Action):
+    def name(self) -> Text:
+        return "action_mostrar_escolha_visitante"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        tipo_lista = tracker.get_slot('visitante_escolha')
+        if tipo_lista == 'Cardápio':
+            dispatcher.utter_message(text=f"Você selecionou cardápio")  
+            return("action_ask_tipo_cardapio")
+        elif tipo_lista == 'Matricula':
+            dispatcher.utter_message(text=f"Você selecionou cardápio da pré-escola")
+ 
+        elif tipo_lista == 'Lista de Espera':
+            dispatcher.utter_message(text=f"Você selecionou cardápio da pré-escola")
+        
+        elif tipo_lista == 'Lista de Materiais':
+            dispatcher.utter_message(text=f"Você selecionou cardápio da pré-escola")
+
+        dispatcher.utter_message(response='utter_cardapio')
+
+        return [SlotSet('tipo_visitante', None)]
+
+
+
+
