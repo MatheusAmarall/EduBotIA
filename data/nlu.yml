@@ -3,6 +3,7 @@ version: "3.1"
 nlu:
   - intent: cumprimento
     examples: |
+      - o 
       - oi
       - oii
       - ola
@@ -36,6 +37,7 @@ nlu:
       - OK
       - O.K
       - O.K.
+      - okay
 
   - intent: negacao
     examples: |

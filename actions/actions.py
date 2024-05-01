@@ -114,10 +114,12 @@ class MostrarVisitante(Action):
         return "action_mostrar_escolha_visitante"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
-        tipo_lista = tracker.get_slot('visitante_escolha')
+        tipo_lista = tracker.get_slot('tipo_visitante')
         if tipo_lista == 'Cardápio':
             dispatcher.utter_message(text=f"Você selecionou cardápio")  
-            return("action_ask_tipo_cardapio")
+            dispatcher.utter_message(response='utter_cardapio')
+            tracker.get_slot('tipo_cardapio')
+        
         elif tipo_lista == 'Matricula':
             dispatcher.utter_message(text=f"Você selecionou cardápio da pré-escola")
  
@@ -127,7 +129,6 @@ class MostrarVisitante(Action):
         elif tipo_lista == 'Lista de Materiais':
             dispatcher.utter_message(text=f"Você selecionou cardápio da pré-escola")
 
-        dispatcher.utter_message(response='utter_cardapio')
 
         return [SlotSet('tipo_visitante', None)]
 

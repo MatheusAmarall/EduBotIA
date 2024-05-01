@@ -54,14 +54,6 @@ slots:
         conditions:
           - active_loop: tipo_visitante_form
 
-  # tipo_visitante:
-  #   type: text
-  #   influence_conversation: true
-  #   mappings:
-  #     - type: from_entity
-  #       entity: tipo_visitante
-  #       conditions:
-  #         - active_loop: tipo_visitante_form
 
 forms:
   tipo_cardapio_form:
@@ -75,10 +67,8 @@ forms:
   tipo_visitante_form:
     required_slots:
       - tipo_visitante
-  
-  # tipo_visitante_form:
-  #   required_slots:
-  #     - tipo_material
+      - tipo_material
+      - tipo_cardapio
  
  
 
@@ -187,7 +177,7 @@ actions:
   - action_mostrar_escolha_visitante
 
   - utter_matricula
-  - utter_materi
+  - visitante_escolha
 
 session_config:
   session_expiration_time: 60

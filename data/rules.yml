@@ -41,7 +41,21 @@ version: "3.1"
       - intent: visitante
       - action: tipo_visitante_form
       - active_loop: tipo_visitante_form
+
+   
     
+  - rule: visitante_pede_cardapio
+    steps: 
+      - intent: visitante
+      - action: tipo_visitante_form
+      - active_loop: tipo_visitante_form
+      - intent: caradapio
+      - slot_was_set: 
+          - tipo_cardapio: true
+
+
+
+
   - rule: enviar_o_form_visitante_options
     condition:
       - active_loop: tipo_visitante_form
