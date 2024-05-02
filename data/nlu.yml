@@ -112,6 +112,9 @@ nlu:
       - [Matricula](tipo_visitante)
       - [Lista de Espera](tipo_visitante)
       - [Lista de Materiais](tipo_visitante)
+ 
+ 
+   
 
   - intent: lista_espera
     examples: |

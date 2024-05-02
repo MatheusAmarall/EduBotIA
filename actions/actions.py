@@ -54,7 +54,6 @@ class MostrarListaMaterial(Action):
         return [SlotSet('tipo_material', None)]
 
 
-
 ##############CARDAPIO
 class AskTipoCardapioAction(Action):
     def name(self) -> Text:
@@ -118,21 +117,39 @@ class MostrarVisitante(Action):
         if tipo_lista == 'Cardápio':
             dispatcher.utter_message(text=f"Você selecionou cardápio")  
             dispatcher.utter_message(response='utter_ask_tipo_cardapio',buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_CARDAPIO])
-            
+
             tracker.get_slot('tipo_cardapio')
-        
+
         elif tipo_lista == 'Matricula':
-            dispatcher.utter_message(text=f"Você selecionou Matricula")
+            dispatcher.utter_message(response='utter_matricula')
  
         elif tipo_lista == 'Lista de Espera':
-            dispatcher.utter_message(text=f"Você selecionou Lista de espera")
+            dispatcher.utter_message(response='utter_lista_espera')
         
         elif tipo_lista == 'Lista de Materiais':
             dispatcher.utter_message(text=f"Você selecionou Lista de materiais")
-            dispatcher.utter_message(response='utter_ask_tipo_cardapio',buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_TURMA])
+            dispatcher.utter_message(response='utter_ask_tipo_material',buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_TURMA])
+
+            tracker.get_slot('tipo_material')
 
         return [SlotSet('tipo_visitante', None), SlotSet('tipo_cardapio', None), SlotSet('tipo_material', None)]
 
+    def valideOp(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        tipo_lista = tracker.get_slot('tipo_visitante')
+
+        if tipo_lista == 'cardápio maternal':
+            dispatcher.utter_message(text=f"Você selecionou cardapio maternal xxxxxx")
+
+        elif tipo_lista == 'cardápio pré-escola':
+            dispatcher.utter_message(text=f"Você selecionou cardapio pre-escola xxx")
+
+
+        elif tipo_lista == 'maternal':
+            dispatcher.utter_message(text=f"Você selecionou Lista de Materiais do maternal")
+
+
+        elif tipo_lista == 'pre-escola':
+            dispatcher.utter_message(text=f"Você selecionou lista de materiais da pre-escola xxx")
 
 
 
