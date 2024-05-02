@@ -3,6 +3,7 @@ version: "3.1"
 nlu:
   - intent: cumprimento
     examples: |
+      - o 
       - oi
       - oii
       - ola
@@ -32,6 +33,11 @@ nlu:
       - sem dúvidas
       - com certeza
       - obrigado
+      - ok
+      - OK
+      - O.K
+      - O.K.
+      - okay
 
   - intent: negacao
     examples: |
@@ -100,6 +106,16 @@ nlu:
       - [maternal](tipo_material)
       - [pre-escola](tipo_material)
 
+  - intent: visitante_escolha
+    examples: |
+      - [Cardápio](tipo_visitante)
+      - [Matricula](tipo_visitante)
+      - [Lista de Espera](tipo_visitante)
+      - [Lista de Materiais](tipo_visitante)
+ 
+ 
+   
+
   - intent: lista_espera
     examples: |
       - lista de espera
@@ -126,4 +142,9 @@ nlu:
       - O cronograma de aulas está disponível?
       - Como posso acessar o cronograma de aulas?
       - Onde posso encontrar o cronograma de aulas?
+
+
+  - intent: visitante
+    examples: |
+      - visitante
 

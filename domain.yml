@@ -16,11 +16,13 @@ intents:
   - material_escolha
   - cardapio_escolha
   - cardapio
+  - visitante
+  - visitante_escolha
 
 entities:
   - tipo_material
   - tipo_cardapio
-
+  - tipo_visitante
 
 
 slots:
@@ -42,17 +44,31 @@ slots:
         conditions:
           - active_loop: tipo_cardapio_form
 
+  tipo_visitante:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: tipo_visitante
+        conditions:
+          - active_loop: tipo_visitante_form
+
 
 forms:
   tipo_cardapio_form:
     required_slots:
       - tipo_cardapio
 
-
   tipo_material_form:
     required_slots:
       - tipo_material
 
+  tipo_visitante_form:
+    required_slots:
+      - tipo_visitante
+ 
+ 
+ 
 
 responses:
   
@@ -137,6 +153,11 @@ responses:
     selecione o tipo de cardapio que deseja:
      "
 
+  utter_ask_tipo_visitante:
+  - text: "
+    selecione o que precisa:
+     "
+
 actions: 
   - action_ask_tipo_material
   - utter_ask_tipo_material
@@ -147,6 +168,14 @@ actions:
   - utter_ask_tipo_cardapio
   - action_submit_form_tipo_cardapio
   - action_mostrar_cardapio
+  
+  - action_ask_tipo_visitante
+  - utter_ask_tipo_visitante
+  - action_submit_form_tipo_visitante
+  - action_mostrar_escolha_visitante
+
+  - utter_matricula
+  - visitante_escolha
 
 session_config:
   session_expiration_time: 60

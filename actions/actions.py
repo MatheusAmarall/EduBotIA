@@ -13,7 +13,13 @@ ALLOWED_CARDAPIO = (
    
     'cardápio maternal', 'cardápio pré-escola',
 )
+ALLOWED_VISITANTE = (
+   
+    'Cardápio', 'Matricula',
+    'Lista de Espera', 'Lista de Materiais',
+)
 
+##############MATERIAL
 class AskTipoMaterialAction(Action):
     def name(self) -> Text:
         return "action_ask_tipo_material"
@@ -48,6 +54,7 @@ class MostrarListaMaterial(Action):
         return [SlotSet('tipo_material', None)]
 
 
+##############CARDAPIO
 class AskTipoCardapioAction(Action):
     def name(self) -> Text:
         return "action_ask_tipo_cardapio"
@@ -80,3 +87,69 @@ class MostrarCardapio(Action):
         dispatcher.utter_message(response='utter_cardapio')
 
         return [SlotSet('tipo_cardapio', None)]
+
+
+
+##############VISITANTE
+class AskTipoVisitanteAction(Action):
+    def name(self) -> Text:
+        return "action_ask_tipo_visitante"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[str, Any]]]:
+        dispatcher.utter_message(response="utter_ask_tipo_visitante", buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_VISITANTE])
+        return []
+    
+class SubmitFormTipoVisitante(Action):
+    def name(self) -> Text:
+        return 'action_submit_form_tipo_visitante'
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        dispatcher.utter_message(text='form enviado')
+
+        return []
+    
+class MostrarVisitante(Action):
+    def name(self) -> Text:
+        return "action_mostrar_escolha_visitante"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        tipo_lista = tracker.get_slot('tipo_visitante')
+        if tipo_lista == 'Cardápio':
+            dispatcher.utter_message(text=f"Você selecionou cardápio")  
+            dispatcher.utter_message(response='utter_ask_tipo_cardapio',buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_CARDAPIO])
+
+            tracker.get_slot('tipo_cardapio')
+
+        elif tipo_lista == 'Matricula':
+            dispatcher.utter_message(response='utter_matricula')
+ 
+        elif tipo_lista == 'Lista de Espera':
+            dispatcher.utter_message(response='utter_lista_espera')
+        
+        elif tipo_lista == 'Lista de Materiais':
+            dispatcher.utter_message(text=f"Você selecionou Lista de materiais")
+            dispatcher.utter_message(response='utter_ask_tipo_material',buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_TURMA])
+
+            tracker.get_slot('tipo_material')
+
+        return [SlotSet('tipo_visitante', None), SlotSet('tipo_cardapio', None), SlotSet('tipo_material', None)]
+
+    def valideOp(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        tipo_lista = tracker.get_slot('tipo_visitante')
+
+        if tipo_lista == 'cardápio maternal':
+            dispatcher.utter_message(text=f"Você selecionou cardapio maternal xxxxxx")
+
+        elif tipo_lista == 'cardápio pré-escola':
+            dispatcher.utter_message(text=f"Você selecionou cardapio pre-escola xxx")
+
+
+        elif tipo_lista == 'maternal':
+            dispatcher.utter_message(text=f"Você selecionou Lista de Materiais do maternal")
+
+
+        elif tipo_lista == 'pre-escola':
+            dispatcher.utter_message(text=f"Você selecionou lista de materiais da pre-escola xxx")
+
+
+
