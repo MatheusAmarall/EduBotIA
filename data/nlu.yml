@@ -70,6 +70,7 @@ nlu:
     examples: |
       - preciso da lista de material
       - lista de material
+      - lista de materiais
       - qual material o aluno precisa ?
       - Gostaria de receber a lista de material escolar.
       - Poderia me fornecer a lista de materiais necessários para o aluno?
@@ -145,6 +146,9 @@ nlu:
 
 
   - intent: visitante
-    examples: |
-      - visitante
+    examples: |    
+      - Gostaria de listar as opções disponíveis no EduBot
+      - Ajuda
+      - Funcionalidades do sistema
+      - Descrição das funcionalidades
 

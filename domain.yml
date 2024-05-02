@@ -155,7 +155,7 @@ responses:
 
   utter_ask_tipo_visitante:
   - text: "
-    selecione o que precisa:
+    Olá, sou o EduBot, eu posso te auxiliar com as seguintes funcionalidades:
      "
 
 actions: 
