@@ -108,10 +108,10 @@ nlu:
 
   - intent: visitante_escolha
     examples: |
-      - [Cardápio](visitante_escolha)
-      - [Matricula](visitante_escolha)
-      - [Lista de Espera](visitante_escolha)
-      - [Lista de Materiais](visitante_escolha)
+      - [Cardápio](tipo_visitante)
+      - [Matricula](tipo_visitante)
+      - [Lista de Espera](tipo_visitante)
+      - [Lista de Materiais](tipo_visitante)
 
   - intent: lista_espera
     examples: |

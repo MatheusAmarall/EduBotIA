@@ -18,7 +18,7 @@ version: "3.1"
       - action: action_mostrar_lista_material
 
   
-  - rule: ativar_o_form_solicitar_caradapio
+  - rule: ativar_o_form_solicitar_cardapio
     steps: 
       - intent: cardapio
       - action: tipo_cardapio_form
@@ -34,26 +34,12 @@ version: "3.1"
         - requested_slot: null
       - action: action_mostrar_cardapio
 
-  
-  
+   
   - rule: ativar_o_form_visitante_options
     steps: 
       - intent: visitante
       - action: tipo_visitante_form
       - active_loop: tipo_visitante_form
-
-   
-    
-  - rule: visitante_pede_cardapio
-    steps: 
-      - intent: visitante
-      - action: tipo_visitante_form
-      - active_loop: tipo_visitante_form
-      - intent: caradapio
-      - slot_was_set: 
-          - tipo_cardapio: true
-
-
 
 
   - rule: enviar_o_form_visitante_options

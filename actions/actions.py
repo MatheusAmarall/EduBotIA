@@ -117,20 +117,21 @@ class MostrarVisitante(Action):
         tipo_lista = tracker.get_slot('tipo_visitante')
         if tipo_lista == 'Cardápio':
             dispatcher.utter_message(text=f"Você selecionou cardápio")  
-            dispatcher.utter_message(response='utter_cardapio')
+            dispatcher.utter_message(response='utter_ask_tipo_cardapio',buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_CARDAPIO])
+            
             tracker.get_slot('tipo_cardapio')
         
         elif tipo_lista == 'Matricula':
-            dispatcher.utter_message(text=f"Você selecionou cardápio da pré-escola")
+            dispatcher.utter_message(text=f"Você selecionou Matricula")
  
         elif tipo_lista == 'Lista de Espera':
-            dispatcher.utter_message(text=f"Você selecionou cardápio da pré-escola")
+            dispatcher.utter_message(text=f"Você selecionou Lista de espera")
         
         elif tipo_lista == 'Lista de Materiais':
-            dispatcher.utter_message(text=f"Você selecionou cardápio da pré-escola")
+            dispatcher.utter_message(text=f"Você selecionou Lista de materiais")
+            dispatcher.utter_message(response='utter_ask_tipo_cardapio',buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_TURMA])
 
-
-        return [SlotSet('tipo_visitante', None)]
+        return [SlotSet('tipo_visitante', None), SlotSet('tipo_cardapio', None), SlotSet('tipo_material', None)]
 
 
 

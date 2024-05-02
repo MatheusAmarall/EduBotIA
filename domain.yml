@@ -25,7 +25,6 @@ entities:
   - tipo_visitante
 
 
-
 slots:
   tipo_material:
     type: text
@@ -67,8 +66,7 @@ forms:
   tipo_visitante_form:
     required_slots:
       - tipo_visitante
-      - tipo_material
-      - tipo_cardapio
+ 
  
  
 

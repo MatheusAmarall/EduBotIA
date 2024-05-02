@@ -120,13 +120,7 @@ stories:
     - requested_slot: tipo_visitante
   - intent: visitante_escolha
 
-- story: interactive_story_3
-  steps:
-  - intent: visitante
-  - action: tipo_visitante_form
-  - active_loop: tipo_visitante_form
-  - slot_was_set:
-    - requested_slot: tipo_visitante
-  - intent: cardapio_escolha
+
+ 
 
 
