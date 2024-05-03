@@ -114,6 +114,11 @@ nlu:
       - [Lista de Espera](tipo_visitante)
       - [Lista de Materiais](tipo_visitante)
  
+  - intent: confirma
+    examples: |
+      - [SIM](confirm_)
+      - [NÃO](confirm_)
+ 
  
    
 
@@ -151,4 +156,7 @@ nlu:
       - Ajuda
       - Funcionalidades do sistema
       - Descrição das funcionalidades
-
+      - opcoes
+      - opcões
+      - options
+      

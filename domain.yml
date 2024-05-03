@@ -18,12 +18,13 @@ intents:
   - cardapio
   - visitante
   - visitante_escolha
+  # - confirma
 
 entities:
   - tipo_material
   - tipo_cardapio
   - tipo_visitante
-
+  # - confirm_
 
 slots:
   tipo_material:
@@ -52,6 +53,15 @@ slots:
         entity: tipo_visitante
         conditions:
           - active_loop: tipo_visitante_form
+  
+  # confirm_:
+  #   type: text
+  #   influence_conversation: false
+  #   mappings:
+  #     - type: from_entity
+  #       entity: confirm
+  #       conditions:
+  #         - active_loop: confirm_form
 
 
 forms:
@@ -66,6 +76,10 @@ forms:
   tipo_visitante_form:
     required_slots:
       - tipo_visitante
+ 
+  # confirm_:
+  #   required_slots:
+  #     - confirm
  
  
  
@@ -173,6 +187,10 @@ actions:
   - utter_ask_tipo_visitante
   - action_submit_form_tipo_visitante
   - action_mostrar_escolha_visitante
+
+  - action_ask_confirm
+  - action_submit_confirm
+
 
   - utter_matricula
   - visitante_escolha

@@ -60,19 +60,31 @@ stories:
     - active_loop: null
     - action: action_mostrar_escolha_visitante
 
+# - story: confirma_repetir_opcoes
+#   steps:
+#     - intent: confirma
+#     - action: confirm_form
+#     - active_loop: confirm_form
+#     - slot_was_set:
+#       - requested_slot: confirm_
+#     - slot_was_set:
+#       - requested_slot: null
+#     - active_loop: null
+#     - action: action_ask_confirm
 
-- story: visitante escolha_cardapio
-  steps:
-    - intent: visitante
-    - action: tipo_visitante_form
-    - active_loop: tipo_visitante_form
-    - slot_was_set:
-      - requested_slot: tipo_visitante
-    - intent: cardapio
-    - slot_was_set:
-      - requested_slot: tipo_cardapio_form
-    - active_loop: null
-    - action: action_mostrar_cardapio
+
+# - story: visitante escolha_cardapio
+#   steps:
+#     - intent: visitante
+#     - action: tipo_visitante_form
+#     - active_loop: tipo_visitante_form
+#     - slot_was_set:
+#       - requested_slot: tipo_visitante
+#     - intent: cardapio
+#     - slot_was_set:
+#       - requested_slot: tipo_cardapio_form
+#     - active_loop: null
+#     - action: action_mostrar_cardapio
 
 - story: pedir cronograma de aulas path 4
   steps:

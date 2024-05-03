@@ -17,6 +17,11 @@ ALLOWED_VISITANTE = (
     'Cardápio', 'Matricula',
     'Lista de Espera', 'Lista de Materiais',
 )
+ALLOWED_OPCOES = (
+   
+    'SIM', 'NÃO',
+    
+)
 
 ##############MATERIAL
 class AskTipoMaterialAction(Action):
@@ -126,3 +131,25 @@ class MostrarVisitante(Action):
             return[FollowupAction('tipo_material_form'), SlotSet('tipo_visitante', None)]
 
         return [SlotSet('tipo_visitante', None), SlotSet('tipo_cardapio', None), SlotSet('tipo_material', None)]
+
+
+#####CONFIRM######
+# ESSA FUNCAO ESTÁ EM ANDAMENTO #
+class AskTipoVisitanteAction(Action):
+    def name(self) -> Text:
+        return "action_ask_confirm"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[str, Any]]]:
+        dispatcher.utter_message(text="Deseja acessar as opções novamente?", buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_OPCOES])
+        return []
+
+class SubmitConfirm(Action):
+    def name(self) -> Text:
+        return 'action_submit_confirm'
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        dispatcher.utter_message(text='form enviado')
+        if ALLOWED_OPCOES.__getattribute__=='SIM':
+            return[FollowupAction('action_mostrar_escolha_visitante')]
+        
+        return []
