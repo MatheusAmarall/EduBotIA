@@ -23,7 +23,10 @@ entities:
   - tipo_material
   - tipo_cardapio
   - tipo_visitante
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 slots:
   tipo_material:
@@ -67,10 +70,19 @@ forms:
     required_slots:
       - tipo_visitante
  
+<<<<<<< Updated upstream
  
  
 
 responses:
+=======
+
+responses:
+  
+  utter_reformule:
+  - text: "Me desculpe, não consegui entender sua solicitação, por favor reformule"
+ 
+>>>>>>> Stashed changes
   utter_cumprimento:
   - text: "Ola, seja bem vindo ao Edubot"
   - text: "Oi! Bem-vindo ao EduBot, estou aqui para ajudar."
@@ -169,6 +181,10 @@ actions:
   - utter_ask_tipo_visitante
   - action_submit_form_tipo_visitante
   - action_mostrar_escolha_visitante
+<<<<<<< Updated upstream
+=======
+  - ACTION_DEFAULT_FALLBACK_NAME
+>>>>>>> Stashed changes
 
   - utter_matricula
   - visitante_escolha

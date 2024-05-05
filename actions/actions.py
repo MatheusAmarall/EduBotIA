@@ -1,7 +1,11 @@
 from typing import Any, Coroutine, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
+<<<<<<< Updated upstream
 from rasa_sdk.events import SlotSet
+=======
+from rasa_sdk.events import SlotSet, FollowupAction, UserUtteranceReverted
+>>>>>>> Stashed changes
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 
@@ -133,6 +137,7 @@ class MostrarVisitante(Action):
             tracker.get_slot('tipo_material')
 
         return [SlotSet('tipo_visitante', None), SlotSet('tipo_cardapio', None), SlotSet('tipo_material', None)]
+<<<<<<< Updated upstream
 
     def valideOp(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         tipo_lista = tracker.get_slot('tipo_visitante')
@@ -153,3 +158,23 @@ class MostrarVisitante(Action):
 
 
 
+=======
+    
+class ActionDefaultFallback(Action):
+# """Executes the fallback action and goes back to the previous state
+# of the dialogue"""
+
+    def name(self) -> Text:
+        return "ACTION_DEFAULT_FALLBACK_NAME"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(template="my_custom_fallback_template")
+
+        # Revert user message which led to fallback.
+        return [UserUtteranceReverted()]
+>>>>>>> Stashed changes
