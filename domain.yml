@@ -71,19 +71,15 @@ forms:
  
 
 responses:
-  
- 
   utter_cumprimento:
   - text: "Ola, seja bem vindo ao Edubot"
   - text: "Oi! Bem-vindo ao EduBot, estou aqui para ajudar."
 
   utter_afirmacao:
   - text: "fico feliz em ter ajudado"
-    # image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_negacao:
   - text: "desculpe, nao consegui enterder, pergunte novamente"
-    # image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_otimo:
   - text: "fico feliz em ter ajudado :)"

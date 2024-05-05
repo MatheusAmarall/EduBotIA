@@ -4,7 +4,7 @@ Para treinar o bot use o comando:
 rasa train
 
 Para executar o bot use o comando:
-rasa run
+rasa run --enable-api --auth-token thisismysecret
 
 Versão do python necessária:
 Python 3.8, 3.9 ou 3.10
