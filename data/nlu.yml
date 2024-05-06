@@ -112,7 +112,7 @@ nlu:
       - [Matricula](tipo_visitante)
       - [Lista de Espera](tipo_visitante)
       - [Lista de Materiais](tipo_visitante)
-
+ 
   - intent: lista_espera
     examples: |
       - lista de espera
@@ -141,6 +141,11 @@ nlu:
       - Onde posso encontrar o cronograma de aulas?
 
   - intent: visitante
-    examples: |
-      - visitante
-
+    examples: |    
+      - Gostaria de listar as opções disponíveis no EduBot
+      - Ajuda
+      - Funcionalidades do sistema
+      - Descrição das funcionalidades
+      - opcoes
+      - opcões
+      - options

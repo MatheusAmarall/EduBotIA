@@ -18,6 +18,7 @@ intents:
   - cardapio
   - visitante
   - visitante_escolha
+  
 
 entities:
   - tipo_material
@@ -71,6 +72,11 @@ forms:
  
 
 responses:
+
+  utter_reformule:
+    - text: "Desculpe, não consegui compreender, por favor, reformule sua pergunta"
+
+
   utter_cumprimento:
   - text: "Ola, seja bem vindo ao Edubot"
   - text: "Oi! Bem-vindo ao EduBot, estou aqui para ajudar."
