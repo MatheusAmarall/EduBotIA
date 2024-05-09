@@ -138,7 +138,9 @@ class ActionDefaultFallback(Action):
 # of the dialogue"""
 
     def name(self) -> Text:
+        print('passou aqui,1')
         return "ACTION_DEFAULT_FALLBACK_NAME"
+    
 
     async def run(
         self,
@@ -149,4 +151,5 @@ class ActionDefaultFallback(Action):
         dispatcher.utter_message(template="my_custom_fallback_template")
 
         # Revert user message which led to fallback.
-        return [UserUtteranceReverted()]
+        print('passou aqui')
+        return UserUtteranceReverted()

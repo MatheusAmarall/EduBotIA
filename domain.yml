@@ -175,6 +175,7 @@ actions:
   - utter_ask_tipo_visitante
   - action_submit_form_tipo_visitante
   - action_mostrar_escolha_visitante
+  - ACTION_DEFAULT_FALLBACK_NAME
 
   - utter_matricula
   - visitante_escolha
