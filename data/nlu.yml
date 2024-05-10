@@ -70,12 +70,15 @@ nlu:
     examples: |
       - preciso da lista de material
       - lista de material
+      - lista de materiais
+      - gostaria de saber sobre a lista de materiais
       - qual material o aluno precisa ?
-      - Gostaria de receber a lista de material escolar.
+      - Gostaria de receber a lista de material escolar
       - Poderia me fornecer a lista de materiais necessários para o aluno?
       - Qual é a lista de material escolar que o aluno precisa?
       - Pode me ajudar com a lista de material escolar?
-      - Estou procurando pela lista de material escolar.
+      - Estou procurando pela lista de material escolar
+      - Estou procurando pela lista de materiais escolar
 
   - intent: cardapio
     examples: |
@@ -112,7 +115,7 @@ nlu:
       - [Matricula](tipo_visitante)
       - [Lista de Espera](tipo_visitante)
       - [Lista de Materiais](tipo_visitante)
-
+ 
   - intent: lista_espera
     examples: |
       - lista de espera
@@ -141,6 +144,14 @@ nlu:
       - Onde posso encontrar o cronograma de aulas?
 
   - intent: visitante
-    examples: |
-      - visitante
-
+    examples: |    
+      - Gostaria de listar as opções disponíveis no EduBot
+      - Gostaria da lista de opções disponíveis no EduBot
+      - preciso da lista de opções disponíveis no EduBot
+      - preciso da listar as opções disponíveis no EduBot
+      - Ajuda
+      - Funcionalidades do sistema
+      - Descrição das funcionalidades
+      - opcoes
+      - opcões
+      - options

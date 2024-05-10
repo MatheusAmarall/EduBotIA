@@ -1,7 +1,6 @@
 from typing import Any, Coroutine, Text, Dict, List
-
 from rasa_sdk import Action, Tracker
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet, FollowupAction, UserUtteranceReverted
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 
@@ -17,6 +16,11 @@ ALLOWED_VISITANTE = (
    
     'Cardápio', 'Matricula',
     'Lista de Espera', 'Lista de Materiais',
+)
+ALLOWED_OPCOES = (
+   
+    'SIM', 'NÃO',
+    
 )
 
 ##############MATERIAL
@@ -115,11 +119,8 @@ class MostrarVisitante(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         tipo_lista = tracker.get_slot('tipo_visitante')
         if tipo_lista == 'Cardápio':
-            dispatcher.utter_message(text=f"Você selecionou cardápio")  
-            dispatcher.utter_message(response='utter_ask_tipo_cardapio',buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_CARDAPIO])
-
-            tracker.get_slot('tipo_cardapio')
-
+            return[FollowupAction('tipo_cardapio_form'), SlotSet('tipo_visitante', None)]
+        
         elif tipo_lista == 'Matricula':
             dispatcher.utter_message(response='utter_matricula')
  
@@ -127,29 +128,28 @@ class MostrarVisitante(Action):
             dispatcher.utter_message(response='utter_lista_espera')
         
         elif tipo_lista == 'Lista de Materiais':
-            dispatcher.utter_message(text=f"Você selecionou Lista de materiais")
-            dispatcher.utter_message(response='utter_ask_tipo_material',buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_TURMA])
-
-            tracker.get_slot('tipo_material')
+            return[FollowupAction('tipo_material_form'), SlotSet('tipo_visitante', None)]
 
         return [SlotSet('tipo_visitante', None), SlotSet('tipo_cardapio', None), SlotSet('tipo_material', None)]
 
-    def valideOp(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
-        tipo_lista = tracker.get_slot('tipo_visitante')
 
-        if tipo_lista == 'cardápio maternal':
-            dispatcher.utter_message(text=f"Você selecionou cardapio maternal xxxxxx")
+class ActionDefaultFallback(Action):
+# """Executes the fallback action and goes back to the previous state
+# of the dialogue"""
 
-        elif tipo_lista == 'cardápio pré-escola':
-            dispatcher.utter_message(text=f"Você selecionou cardapio pre-escola xxx")
+    def name(self) -> Text:
+        print('passou aqui,1')
+        return "ACTION_DEFAULT_FALLBACK_NAME"
+    
 
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(template="my_custom_fallback_template")
 
-        elif tipo_lista == 'maternal':
-            dispatcher.utter_message(text=f"Você selecionou Lista de Materiais do maternal")
-
-
-        elif tipo_lista == 'pre-escola':
-            dispatcher.utter_message(text=f"Você selecionou lista de materiais da pre-escola xxx")
-
-
-
+        # Revert user message which led to fallback.
+        print('passou aqui')
+        return UserUtteranceReverted()

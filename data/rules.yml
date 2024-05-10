@@ -52,3 +52,7 @@ rules:
         - requested_slot: null
       - action: action_mostrar_escolha_visitante
   
+  - rule: quando o bot nao entendeu a intenção 
+    steps:
+      - intent: nlu_fallback
+      - action: utter_reformule
