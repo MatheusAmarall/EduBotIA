@@ -74,24 +74,47 @@ forms:
 responses:
 
   utter_reformule:
-    - text: "Desculpe, não consegui compreender, por favor, reformule sua pergunta"
+  - text: "Desculpe, não entendi. Você poderia reformular sua pergunta?"
+  - text: "Poderia, por favor, reformular a pergunta? Não consegui entender."
+  - text: "Não consegui compreender a sua pergunta. Você pode tentar novamente?"
+  - text: "Poderia repetir de outra forma? Não consegui entender."
+  - text: "Desculpe, estou tendo dificuldades para entender. Reformule, por favor."
+
 
 
   utter_cumprimento:
-  - text: "Ola, seja bem vindo ao Edubot"
-  - text: "Oi! Bem-vindo ao EduBot, estou aqui para ajudar."
+    - text: "Olá, seja bem-vindo ao EduBot!"
+    - text: "Oi! Bem-vindo ao EduBot, estou aqui para ajudar."
+    - text: "Oi, Bem-vindo ao EduBot."
+    - text: "Seja bem-vindo! Como posso ajudar você hoje?"
+    - text: "Olá! Bem-vindo ao EduBot. Como posso ser útil?"
+    - text: "Oi! Bem-vindo ao EduBot. Estou aqui para esclarecer suas dúvidas."
+
 
   utter_afirmacao:
-  - text: "fico feliz em ter ajudado"
+  - text: "Fico feliz em ter ajudado."
+  - text: "Que bom que pude ajudar!"
+  - text: "Estou contente por ter sido útil."
+  - text: "Fico feliz em saber que pude ajudar!"
+  - text: "Ótimo! Fico contente em ter ajudado."
+  - text: "É bom saber que pude ser útil."
 
-  utter_negacao:
-  - text: "desculpe, nao consegui enterder, pergunte novamente"
 
   utter_otimo:
-  - text: "fico feliz em ter ajudado :)"
+  - text: "Fico feliz em ter ajudado :)"
+  - text: "Ótimo! Fico contente em ter ajudado :)"
+  - text: "Que bom que pude ajudar :)"
+  - text: "Estou contente por ter sido útil :)"
+  - text: "É ótimo saber que pude ser útil :)"
+  - text: "Fico feliz em saber que pude ajudar :)"
+
+  utter_negacao:
+  - text: "desculpe, nao consegui entender, pergunte novamente"
 
   utter_goodbye:
   - text: "Tchau"
+  - text: "Tchau, até mais"
+  - text: "Até mais"
 
   utter_lista_espera:
   - text: "
@@ -129,7 +152,14 @@ responses:
   "
 
   utter_cronograma_aulas:
-  - text: "cronograma de aulas"
+  - text: "Infelizmente, ainda não tenho acesso ao cronograma de aulas."
+  - text: "Desculpe, no momento não possuo acesso ao cronograma de aulas."
+  - text: "Atualmente, não tenho informações sobre o cronograma de aulas."
+  - text: "Lamento, ainda não tenho o cronograma de aulas disponível."
+  - text: "Me desculpe, não tenho acesso ao cronograma de aulas por enquanto."
+  - text: "No momento, não posso fornecer o cronograma de aulas."
+  - text: "Infelizmente, ainda não tenho informações sobre o cronograma de aulas."
+
 
   utter_matricula:
   - text: "Você Precisara trazer: \n
@@ -143,7 +173,16 @@ responses:
   "
 
   utter_bot_challenge:
-  - text: "Sou um robô, me chamo Edubot."
+  - text: "Sou um robô, meu nome é Edubot."
+  - text: "Sim, sou um robô. Meu nome é Edubot."
+  - text: "Você está conversando com um robô, sou o Edubot."
+  - text: "Correto, sou uma inteligência artificial chamada Edubot."
+  - text: "Sim, sou um bot. Fui desenvolvido para ajudar e meu nome é Edubot."
+  - text: "Exato, sou um programa de computador conhecido como Edubot."
+  - text: "Sim, sou uma IA. Fui projetado para responder suas perguntas. Me chamo Edubot."
+  - text: "Isso mesmo, sou um bot. Meu nome é Edubot."
+  - text: "Correto, sou um robô assistente chamado Edubot."
+
 
   utter_ask_tipo_material:
   - text: "

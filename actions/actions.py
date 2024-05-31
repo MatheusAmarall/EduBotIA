@@ -17,11 +17,7 @@ ALLOWED_VISITANTE = (
     'Cardápio', 'Matricula',
     'Lista de Espera', 'Lista de Materiais',
 )
-ALLOWED_OPCOES = (
-   
-    'SIM', 'NÃO',
-    
-)
+
 
 ##############MATERIAL
 class AskTipoMaterialAction(Action):
@@ -138,7 +134,6 @@ class ActionDefaultFallback(Action):
 # of the dialogue"""
 
     def name(self) -> Text:
-        print('passou aqui,1')
         return "ACTION_DEFAULT_FALLBACK_NAME"
     
 
