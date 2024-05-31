@@ -14,6 +14,10 @@ nlu:
       - E aí?
       - Tudo bem?
       - Como vai?
+      - hello
+      - konnichiwa
+      - hi
+
 
   - intent: despedida
     examples: |
@@ -24,6 +28,8 @@ nlu:
       - Até mais
       - Até logo
       - Até breve
+      - bye 
+      - bye bye
 
   - intent: afirmacao
     examples: |
@@ -62,9 +68,25 @@ nlu:
       - você é um ser humano?
       - estou conversando com um robô?
       - estou conversando com um ser humano?
-      - Posso saber se estou conversando com uma IA?
-      - Estou interagindo com um programa de computador?
-      - Você é um chatbot ou uma pessoa real?
+      - posso saber se estou conversando com uma IA?
+      - estou interagindo com um programa de computador?
+      - você é um chatbot ou uma pessoa real?
+      - isso é uma IA ou uma pessoa real?
+      - você é uma inteligência artificial?
+      - você é uma máquina?
+      - você é um humano ou uma máquina?
+      - você é um bot ou uma pessoa de verdade?
+      - você é uma IA ou uma pessoa disfarçada?
+      - estou falando com uma IA ou uma pessoa?
+      - você é um bot ou um humano?
+      - isso é uma conversa automatizada?
+      - você é uma entidade artificial?
+      - você é um programa de computador?
+      - você é uma máquina pensante?
+      - isso é uma interação com uma IA?
+      - você é um sistema automatizado?
+      - você é um ser humano ou uma inteligência artificial?
+      - você é uma pessoa real ou uma simulação?
 
   - intent: material
     examples: |
@@ -72,25 +94,57 @@ nlu:
       - lista de material
       - lista de materiais
       - gostaria de saber sobre a lista de materiais
-      - qual material o aluno precisa ?
-      - Gostaria de receber a lista de material escolar
-      - Poderia me fornecer a lista de materiais necessários para o aluno?
-      - Qual é a lista de material escolar que o aluno precisa?
-      - Pode me ajudar com a lista de material escolar?
-      - Estou procurando pela lista de material escolar
-      - Estou procurando pela lista de materiais escolar
+      - qual material o aluno precisa?
+      - gostaria de receber a lista de material escolar
+      - poderia me fornecer a lista de materiais necessários para o aluno?
+      - qual é a lista de material escolar que o aluno precisa?
+      - pode me ajudar com a lista de material escolar?
+      - estou procurando pela lista de material escolar
+      - estou procurando pela lista de materiais escolar
+      - preciso saber a lista de material escolar
+      - onde encontro a lista de material escolar?
+      - onde está a lista de materiais?
+      - pode me informar sobre a lista de materiais escolares?
+      - como consigo a lista de materiais?
+      - lista de materiaes
+      - lista de matereais
+      - lista de materiaus
+      - onde acho a lista de matériais?
+      - me mande a lista de material
+      - qual é a lista de materiais que o aluno precisa?
+      - posso ver a lista de materiais escolares?
+      - onde pego a lista de material escolar?
+      - quero a lista de material
+      - tem como me passar a lista de material escolar?
+      - quais são os materiais necessários para o aluno?
+      - qual a lista de material?
+      - lista de materiais por favor
+      - lista de materias
+      - qual a lista de materiaus?
+      - posso ter a lista de materiais?
+      - pode enviar a lista de material escolar?
+      - onde encontro a lista de material?
+      - você tem a lista de materiais?
+      - qual a lista de matériais escolar?
+      - preciso da lista de materiais escolar
+      - lista de material por favor
+      - lista de material necessaria
+      - qual a lista de material pro aluno?
+      - me manda a lista de material
+
 
   - intent: cardapio
     examples: |
       - preciso dom cardapio
+      - preciso do cardapio
       - lanche
       - merenda
       - gostaria de verificar o lanche
       - oque os alunos comem
       - oque tem de comida
-      - refeicões
+      - refeições
       - qual é a merenda?
-      - oque tem de merenda>
+      - oque tem de merenda?
       - oque tem de lanche?
       - oque é servido para alimentação?
       - oque é servido de merenda?
@@ -98,6 +152,43 @@ nlu:
       - cardapio maternal
       - cardapio pre-escola
       - cardapio pre escola
+      - qual o cardápio de hoje?
+      - oque tem no cardápio?
+      - me mostre o cardápio
+      - qual é o cardápio da semana?
+      - o que vai ter de almoço?
+      - o que vai ter de janta?
+      - qual a comida de hoje?
+      - o que está no cardápio de hoje?
+      - qual é a refeição de hoje?
+      - pode me mostrar o cardápio?
+      - qual o cardápio de amanhã?
+      - me informe o cardápio
+      - cardápio do dia
+      - quero saber o cardápio
+      - onde vejo o cardápio?
+      - me manda o cardápio
+      - quero ver o cardápio
+      - onde está o cardápio?
+      - cardápio semanal
+      - lista de refeições
+      - alimentação dos alunos
+      - qual é o cardápio da creche?
+      - cardápio da pré-escola
+      - cardápio da creche
+      - cardápio dos alunos
+      - oque tem de almoço?
+      - qual a merenda de hoje?
+      - qual a merenda de amanhã?
+      - comida das crianças
+      - alimentação das crianças
+      - o que será servido hoje?
+      - cardápio para os alunos
+      - cardápio do pré
+      - comida do pré
+      - refeição da pré-escola
+      - oque vai ter de merenda?
+
 
   - intent: cardapio_escolha
     examples: |
@@ -120,20 +211,150 @@ nlu:
     examples: |
       - lista de espera
       - gostaria de saber onde encontro a lista de espera
-      - Onde encontro a lista de espera?
-      - Como posso acessar a lista de espera?
-      - Gostaria de informações sobre a lista de espera
-      - Estou interessado na lista de espera
+      - onde encontro a lista de espera?
+      - como posso acessar a lista de espera?
+      - gostaria de informações sobre a lista de espera
+      - estou interessado na lista de espera
+      - onde vejo a lista de espera?
+      - como ver a lista de espera?
+      - onde está a lista de espera?
+      - como acessar a lista de espera?
+      - preciso ver a lista de espera
+      - me mostre a lista de espera
+      - quero acessar a lista de espera
+      - pode me informar sobre a lista de espera?
+      - qual é a lista de espera?
+      - tem como ver a lista de espera?
+      - como encontrar a lista de espera?
+      - me diga onde encontro a lista de espera
+      - como posso ver a lista de espera?
+      - quero informações sobre a lista de espera
+      - me forneça a lista de espera
+      - como posso obter a lista de espera?
+      - onde está a lista de espera dos alunos?
+      - lista de espera dos alunos
+      - acesso à lista de espera
+      - gostaria de acessar a lista de espera
+      - onde acho a lista de espera?
+      - posso acessar a lista de espera?
+      - informações sobre a lista de espera
+      - lista de espera dos estudantes
+      - lista de espera para matrícula
+      - lista de espera para inscrição
+      - onde fica a lista de espera?
+      - lista de espera para alunos
+      - onde pego a lista de espera?
+      - onde acessar a lista de espera?
+      - preciso da lista de espera
+      - como ver a lista de espera dos alunos?
+      - quero ver a lista de espera dos alunos
+      - lista de espera para novos alunos
+      - onde encontro a lista de espera para novos alunos?
+      - posso ver a lista de espera?
+      - tem lista de espera?
+      - onde está a lista de espera dos estudantes?
+      - onde acho a lista de espera dos estudantes?
+      - como vejo a lista de espera dos estudantes?
+      - onde encontro a lista de espera de matrículas?
+      - como vejo a lista de espera de matrículas?
+      - lista de espera para inscrições
+      - como posso acessar a lista de espera para inscrições?
+      - onde encontro a lista de espera para inscrições?
+      - lista de espera para novos estudantes
+      - onde está a lista de espera para novos estudantes?
+      - lista de espera
+      - lista d espera
+      - gostaria de saber onde encontro a lista de espera
+      - onde encontro a lista de espera?
+      - como posso acessar a lista de espera?
+      - gostaria de informações sobre a lista de espera
+      - estou interessado na lista de espera
+      - como vejo a lista de espera?
+      - onde está a lista de espera?
+      - como encontro a lista de espera?
+      - onde posso ver a lista de espera?
+      - pode me informar sobre a lista de espera?
+      - quero saber da lista de espera
+      - como acessar a lista de espera?
+      - onde acessar a lista de espera?
+      - onde posso acessar a lista de espera?
+      - onde achar a lista de espera?
+      - onde posso achar a lista de espera?
+      - quero acessar a lista de espera
+      - informações sobre a lista de espera
+      - me fale sobre a lista de espera
+      - detalhes sobre a lista de espera
+      - quero ver a lista de espera
+      - estou interessado na lista d espera
+      - onde posso ver a lista d espera?
+
+
 
   - intent: matricula
     examples: |
       - matricula
+      - matrícula
       - gostaria de saber como faço a matricula
-      - Como faço para realizar a matrícula?
-      - Gostaria de informações sobre o processo de matrícula.
-      - Como posso me matricular?
-      - Quero fazer a matrícula. Como procedo?
-      - Estou interessado em me matricular. Qual é o procedimento?
+      - como faço para realizar a matrícula?
+      - gostaria de informações sobre o processo de matrícula
+      - como posso me matricular?
+      - quero fazer a matrícula. como procedo?
+      - estou interessado em me matricular. qual é o procedimento?
+      - como faço a matrícula?
+      - quero saber como fazer a matrícula
+      - qual o processo de matrícula?
+      - como é o processo de matrícula?
+      - quero me matricular, como faço?
+      - o que é necessário para fazer a matrícula?
+      - quais são os passos para a matrícula?
+      - quais documentos são necessários para a matrícula?
+      - como realizar a matrícula?
+      - quero me matricular, qual o procedimento?
+      - pode me informar sobre a matrícula?
+      - como se faz a matrícula?
+      - qual o procedimento de matrícula?
+      - informações sobre matrícula
+      - me fale sobre a matrícula
+      - o que preciso para me matricular?
+      - tem como me matricular?
+      - onde faço a matrícula?
+      - pode me ajudar com a matrícula?
+      - instruções para matrícula
+      - como devo proceder para a matrícula?
+      - qual o processo para me matricular?
+      - detalhes sobre matrícula
+      - onde me matriculo?
+      - quando posso fazer a matrícula?
+      - quero realizar a matrícula, como fazer?
+      - quero saber como realizar a matrícula
+      - tem como me explicar o processo de matrícula?
+      - preciso me matricular, como faço?
+      - como funciona a matrícula?
+      - qual a documentação para matrícula?
+      - como efetuar a matrícula?
+      - pode me explicar como fazer a matrícula?
+      - preciso de informações sobre matrícula
+      - como realizar a matrícula dos alunos?
+      - como proceder com a matrícula?
+      - qual a maneira de fazer a matrícula?
+      - como posso proceder para fazer a matrícula?
+      - quero me inscrever, como faço?
+      - como faço para me inscrever?
+      - como fazer a inscrição?
+      - detalhes sobre como me inscrever
+      - como faço para inscrever?
+      - instruções para inscrição
+      - como realizar a inscrição?
+      - quais são os passos para a inscrição?
+      - quero me inscrever, qual o procedimento?
+      - pode me informar sobre a inscrição?
+      - onde posso me inscrever?
+      - como proceder para me inscrever?
+      - onde fazer a inscrição?
+      - preciso de informações sobre inscrição
+      - como proceder com a inscrição?
+      - quero fazer a inscrição. como procedo?
+
 
   - intent: aulas
     examples: |
@@ -144,14 +365,32 @@ nlu:
       - Onde posso encontrar o cronograma de aulas?
 
   - intent: visitante
-    examples: |    
-      - Gostaria de listar as opções disponíveis no EduBot
-      - Gostaria da lista de opções disponíveis no EduBot
+    examples: |
+      - gostaria de listar as opções disponíveis no EduBot
+      - gostaria da lista de opções disponíveis no EduBot
       - preciso da lista de opções disponíveis no EduBot
       - preciso da listar as opções disponíveis no EduBot
-      - Ajuda
-      - Funcionalidades do sistema
-      - Descrição das funcionalidades
+      - ajuda
+      - funcionalidades do sistema
+      - descrição das funcionalidades
       - opcoes
       - opcões
       - options
+      - posso ver as opções disponíveis no EduBot?
+      - quais são as opções do EduBot?
+      - quais funcionalidades estão disponíveis?
+      - quero conhecer as opções disponíveis
+      - quais são as opções do sistema?
+      - lista de opções disponíveis
+      - funcionalidades
+      - quais as opções que o EduBot oferece?
+      - posso ver as opções?
+      - quais as opções do EduBot?
+      - quais são as funcionalidades do sistema?
+      - quais são as opções oferecidas pelo EduBot?
+      - o que posso fazer no EduBot?
+      - quero saber mais sobre as opções disponíveis
+      - opções do EduBot
+      - quais as opções do sistema EduBot?
+      - quais as opções oferecidas?
+      - quais as opções que tenho no EduBot?
