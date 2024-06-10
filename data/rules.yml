@@ -23,6 +23,12 @@ rules:
       - intent: cardapio
       - action: tipo_cardapio_form
       - active_loop: tipo_cardapio_form
+
+  - rule: ativar_o_form_encaminhamento
+    steps: 
+      - intent: encaminhamento
+      - action: tipo_encaminhamento_form
+      - active_loop: tipo_encaminhamento_form
     
   - rule: enviar_o_form_solicitar_cardapio
     condition:
@@ -33,6 +39,16 @@ rules:
       - slot_was_set: 
         - requested_slot: null
       - action: action_mostrar_cardapio
+
+  - rule: enviar_o_form_solicitar_encaminhamento
+    condition:
+      - active_loop: tipo_encaminhamento_form
+    steps: 
+      - action: tipo_encaminhamento_form
+      - active_loop: null
+      - slot_was_set: 
+        - requested_slot: null
+      - action: action_mostrar_encaminhamento
 
    
   - rule: ativar_o_form_visitante_options

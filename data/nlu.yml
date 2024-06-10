@@ -195,6 +195,11 @@ nlu:
       - [cardápio maternal](tipo_cardapio)
       - [cardápio pré-escola](tipo_cardapio)
   
+  - intent: encaminhamento_escolha
+    examples: |
+      - [SIM](tipo_cardapio)
+      - [NÃO](tipo_cardapio)
+  
   - intent: material_escolha
     examples: |
       - [maternal](tipo_material)
@@ -394,3 +399,11 @@ nlu:
       - quais as opções do sistema EduBot?
       - quais as opções oferecidas?
       - quais as opções que tenho no EduBot?
+
+  - intent: encaminhamento
+    examples: |
+      - marcar visita
+      - encaminhamento
+      - preciso agendar uma visita
+      - preciso agendar uma reunião
+      - agendar reunião
