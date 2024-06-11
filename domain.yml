@@ -191,7 +191,17 @@ responses:
  
   utter_ask_tipo_cardapio:
   - text: "
-    selecione o tipo de cardapio que deseja:
+    selecione o tipo de cardápio que deseja:
+     "
+
+  utter_cardapio_maternal:
+  - text: "
+    Você selecionou o cardápio maternal:
+     "
+
+  utter_cardapio_pre_escola:
+  - text: "
+    Você selecionou o cardápio da pré-escola:
      "
 
   utter_ask_tipo_visitante:

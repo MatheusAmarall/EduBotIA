@@ -44,11 +44,9 @@ class MostrarListaMaterial(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         tipo_lista = tracker.get_slot('tipo_material')
         if tipo_lista == 'maternal':
-            dispatcher.utter_message(text=f"Você selecionou maternal")
             dispatcher.utter_message(response='utter_material_maternal')
 
         elif tipo_lista == 'pre-escola':
-            dispatcher.utter_message(text=f"Você selecionou pré-escola")
             dispatcher.utter_message(response='utter_lista_material_pre')
 
         return [SlotSet('tipo_material', None)]
@@ -79,10 +77,10 @@ class MostrarCardapio(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         tipo_lista = tracker.get_slot('tipo_cardapio')
         if tipo_lista == 'cardápio maternal':
-            dispatcher.utter_message(text=f"Você selecionou cardápio do maternal")  
+            dispatcher.utter_message(response="utter_cardapio_maternal")  
 
         elif tipo_lista == 'cardápio pré-escola':
-            dispatcher.utter_message(text=f"Você selecionou cardápio da pré-escola")
+            dispatcher.utter_message(response="utter_cardapio_pre_escola")
 
         dispatcher.utter_message(response='utter_cardapio')
 
