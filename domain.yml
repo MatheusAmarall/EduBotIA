@@ -196,7 +196,7 @@ responses:
 
   utter_cardapio_maternal:
   - text: "
-    Você selecionou o cardápio maternal:
+    Você selecionou o cardápio do maternal:
      "
 
   utter_cardapio_pre_escola:
