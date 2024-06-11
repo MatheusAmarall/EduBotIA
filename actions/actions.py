@@ -44,11 +44,9 @@ class MostrarListaMaterial(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         tipo_lista = tracker.get_slot('tipo_material')
         if tipo_lista == 'maternal':
-            dispatcher.utter_message(response="utter_lista_maternal")
             dispatcher.utter_message(response='utter_material_maternal')
 
         elif tipo_lista == 'pre-escola':
-            dispatcher.utter_message(text=f"utter_lista_pre_escola")
             dispatcher.utter_message(response='utter_lista_material_pre')
 
         return [SlotSet('tipo_material', None)]
