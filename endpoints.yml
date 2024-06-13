@@ -26,13 +26,13 @@ action_endpoint:
 #    use_ssl: <whether or not the communication is encrypted, default false>
 
 #linha de conexao com o banco de dados, mantenha comentada enquanto treina localmente sem DB
-# tracker_store:
-#   type: mongod
-#   url: mongodb://localhost:27017
-#   db: EduBot
-#   username:
-#   password:
-#   auth_source: "bot"
+tracker_store:
+  type: mongod
+  url: mongodb://localhost:27017
+  db: EduBot
+  username:
+  password:
+  auth_source: "bot"
 
 # tracker_store:
 #   type: mongod
