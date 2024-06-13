@@ -259,8 +259,8 @@ actions:
   - utter_matricula
   - visitante_escolha
 
-  - action_ask_encaminhamento
-  - action_submit_form_encaminhamento
+  - action_ask_tipo_encaminhamento
+  - action_submit_form_tipo_encaminhamento
   - action_mostrar_encaminhamento
   - utter_encaminhamento
   - utter_ask_encaminhamento
