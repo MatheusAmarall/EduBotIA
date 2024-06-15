@@ -9,7 +9,6 @@
 *.sass-cache
 *build/
 *dat
-.env
 venv
 .pytest_cache/
 .ipynb_checkpoints
