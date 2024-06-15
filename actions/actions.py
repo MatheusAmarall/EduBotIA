@@ -15,7 +15,7 @@ ALLOWED_CARDAPIO = (
 ALLOWED_VISITANTE = (
    
     'Cardápio', 'Matricula',
-    'Lista de Espera', 'Lista de Materiais','adfsdf'
+    'Lista de Espera', 'Lista de Materiais','Encaminhamento'
 )
 ALLOWED_ENCAMINHAMENTO = (
    
