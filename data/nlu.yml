@@ -211,7 +211,7 @@ nlu:
       - [Matricula](tipo_visitante)
       - [Lista de Espera](tipo_visitante)
       - [Lista de Materiais](tipo_visitante)
-      - [Encaminhamento](tipo_visitante)
+      - [Agendamento](tipo_visitante)
 
   - intent: lista_espera
     examples: |
@@ -406,7 +406,8 @@ nlu:
   - intent: encaminhamento
     examples: |
       - marcar visita
-      - encaminhamento
+      - agendar encaminhamento
+      - pedir encaminhamento
       - preciso agendar uma visita
       - preciso agendar uma reunião
       - agendar reunião

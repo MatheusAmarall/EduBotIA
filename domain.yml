@@ -32,7 +32,7 @@ entities:
 slots:
   tipo_material:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: tipo_material
@@ -41,7 +41,7 @@ slots:
 
   tipo_cardapio:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: tipo_cardapio
@@ -50,7 +50,7 @@ slots:
 
   tipo_visitante:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: tipo_visitante
@@ -59,7 +59,7 @@ slots:
   
   tipo_encaminhamento:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: tipo_encaminhamento
