@@ -3,6 +3,8 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet, FollowupAction, UserUtteranceReverted
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
+from utils.utils import send_email
+from services.gateway_service import GatewayService
 
 ALLOWED_TURMA = (
    
@@ -101,7 +103,6 @@ class AskTipoEncaminhamentoAction(Action):
 
 class SubmitFormTipoEncaminhamento(Action):
     def name(self) -> Text:
-        print("entrei aqui")
         return 'action_submit_form_tipo_encaminhamento'
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
@@ -115,9 +116,23 @@ class MostrarEncaminhamento(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         tipo_lista = tracker.get_slot('tipo_encaminhamento')
-        print("to no encaminhamento")
+        user_email = tracker.sender_id
+
         if tipo_lista == 'SIM':
-            dispatcher.utter_message(response="utter_encaminhamento")
+            gateway_service = GatewayService()
+            
+            res = gateway_service.realiza_agendamento(user_email)
+            match res.status_code:
+                case 500 | 400 | 401 | 403:
+                    errors = res.json().get('errors', [])
+                    error_message = errors[0] if errors else 'Infelizmente houve um erro, tente novamente. :('
+                    dispatcher.utter_message(f'{error_message}')
+                case 200:
+                    dispatcher.utter_message(response="utter_encaminhamento")
+                    json = res.json()
+                    send_email(user_email, json['dataAgendamento'])
+                case _:
+                    dispatcher.utter_message('Infelizmente houve um erro, tente novamente. :(')
 
         elif tipo_lista == 'NÃO':
             dispatcher.utter_message(response="utter_ask_encaminhamento_cancelado")
@@ -149,7 +164,6 @@ class MostrarVisitante(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         tipo_lista = tracker.get_slot('tipo_visitante')
-        print("entrei nas opcoes de visitgante")
         if tipo_lista == 'Cardápio':
             return[FollowupAction('tipo_cardapio_form'), SlotSet('tipo_visitante', None)]
         
@@ -163,7 +177,7 @@ class MostrarVisitante(Action):
             return[FollowupAction('tipo_material_form'), SlotSet('tipo_visitante', None)]
         
         elif tipo_lista == 'Encaminhamento':
-            return[FollowupAction('tipo_encaminhamento_form'), SlotSet('tipo_encaminhamento', None)]
+            return[FollowupAction('tipo_encaminhamento_form'), SlotSet('tipo_visitante', None)]
 
         return [SlotSet('tipo_visitante', None), SlotSet('tipo_cardapio', None), SlotSet('tipo_material', None), SlotSet('tipo_encaminhamento', None)]
 
@@ -186,7 +200,6 @@ class ActionDefaultFallback(Action):
         dispatcher.utter_message(template="my_custom_fallback_template")
 
         # Revert user message which led to fallback.
-        print('passou aqui')
         return UserUtteranceReverted()
     
 
