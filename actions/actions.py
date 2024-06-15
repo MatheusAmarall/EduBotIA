@@ -15,7 +15,11 @@ ALLOWED_CARDAPIO = (
 ALLOWED_VISITANTE = (
    
     'Cardápio', 'Matricula',
-    'Lista de Espera', 'Lista de Materiais',
+    'Lista de Espera', 'Lista de Materiais','Encaminhamento'
+)
+ALLOWED_ENCAMINHAMENTO = (
+   
+    'SIM', 'NÃO'
 )
 
 
@@ -123,8 +127,47 @@ class MostrarVisitante(Action):
         
         elif tipo_lista == 'Lista de Materiais':
             return[FollowupAction('tipo_material_form'), SlotSet('tipo_visitante', None)]
+        
+        elif tipo_lista == 'Encaminhamento':
+            return[FollowupAction('tipo_encaminhamento_form'), SlotSet('tipo_encaminhamento', None)]
+        
 
-        return [SlotSet('tipo_visitante', None), SlotSet('tipo_cardapio', None), SlotSet('tipo_material', None)]
+        return [SlotSet('tipo_visitante', None), SlotSet('tipo_cardapio', None), SlotSet('tipo_material', None), SlotSet('tipo_encaminhamento', None)]
+
+
+##########ENCAMINHAMENTO
+class AskEncaminhamentoAction(Action):
+    def name(self) -> Text:
+        return "action_ask_tipo_encaminhamento"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[str, Any]]]:
+        dispatcher.utter_message(response="utter_ask_encaminhamento", buttons=[{"title": tipo,"payload": tipo} for tipo in ALLOWED_ENCAMINHAMENTO])
+        return []
+
+class SubmitFormTipoEncaminhamento(Action):
+    def name(self) -> Text:
+        print("entrei aqui")
+        return 'action_submit_form_tipo_encaminhamento'
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        dispatcher.utter_message(text='form enviado')
+
+        return []
+
+class MostrarEncaminhamento(Action):
+    def name(self) -> Text:
+        return "action_mostrar_encaminhamento"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        tipo_lista = tracker.get_slot('tipo_encaminhamento')
+        print("tipo_lista")
+        if tipo_lista == 'SIM':
+            dispatcher.utter_message(response="utter_encaminhamento")
+
+        elif tipo_lista == 'NÃO':
+            dispatcher.utter_message(response="utter_ask_encaminhamento_cancelado")
+
+        return [SlotSet('tipo_encaminhamento', None)]
 
 
 class ActionDefaultFallback(Action):
@@ -146,3 +189,6 @@ class ActionDefaultFallback(Action):
         # Revert user message which led to fallback.
         print('passou aqui')
         return UserUtteranceReverted()
+    
+
+

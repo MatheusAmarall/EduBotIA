@@ -18,12 +18,15 @@ intents:
   - cardapio
   - visitante
   - visitante_escolha
+  - encaminhamento
+  - encaminhamento_escolha
   
 
 entities:
   - tipo_material
   - tipo_cardapio
   - tipo_visitante
+  - tipo_encaminhamento
 
 
 slots:
@@ -53,6 +56,15 @@ slots:
         entity: tipo_visitante
         conditions:
           - active_loop: tipo_visitante_form
+  
+  tipo_encaminhamento:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: tipo_encaminhamento
+        conditions:
+          - active_loop: tipo_encaminhamento_form
 
 
 forms:
@@ -67,6 +79,10 @@ forms:
   tipo_visitante_form:
     required_slots:
       - tipo_visitante
+  
+  tipo_encaminhamento_form:
+    required_slots:
+      - tipo_encaminhamento
  
  
  
@@ -208,6 +224,20 @@ responses:
   - text: "
     selecione o que precisa:
      "
+  
+  utter_encaminhamento:
+  - text: "
+    Visita agendada, verifique seu email.
+     "
+  
+  utter_ask_encaminhamento:
+  - text: "
+    Confirmar encaminhamento ?
+     "
+  utter_ask_encaminhamento_cancelado:
+  - text: "
+    Ok, Encaminhamento cancelado
+     "
 
 actions: 
   - action_ask_tipo_material
@@ -228,6 +258,12 @@ actions:
 
   - utter_matricula
   - visitante_escolha
+
+  - action_ask_tipo_encaminhamento
+  - action_submit_form_tipo_encaminhamento
+  - action_mostrar_encaminhamento
+  - utter_encaminhamento
+  - utter_ask_encaminhamento
 
 session_config:
   session_expiration_time: 60

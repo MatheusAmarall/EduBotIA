@@ -45,6 +45,18 @@ stories:
       - requested_slot: null
     - active_loop: null
     - action: action_mostrar_cardapio
+
+- story: escolher encaminhamento
+  steps:
+    - intent: encaminhamento
+    - action: tipo_encaminhamento_form
+    - active_loop: tipo_encaminhamento_form
+    - slot_was_set:
+      - requested_slot: tipo_encaminhamento
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_mostrar_encaminhamento
  
      
 - story: visitante escolha
@@ -103,3 +115,13 @@ stories:
   - slot_was_set:
     - requested_slot: tipo_visitante
   - intent: visitante_escolha
+
+
+- story: interactive_story_4
+  steps:
+  - intent: encaminhamento
+  - action: tipo_encaminhamento_form
+  - active_loop: tipo_encaminhamento_form
+  - slot_was_set:
+    - requested_slot: tipo_encaminhamento
+  - intent: encaminhamento_escolha
